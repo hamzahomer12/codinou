@@ -16,6 +16,7 @@ const translations = {
     "nav.home": "Home",
     "nav.services": "Our Services",
     "nav.contact": "Contact Us",
+    "nav.cta": "Start a Project",
 
     // Hero
     "hero.title": "We Build Websites",
@@ -79,18 +80,28 @@ const translations = {
     "contact.message": "Your Message",
     "contact.message.placeholder": "Tell us about your project...",
     "contact.send": "Send Message",
+    "contact.sending": "Sending...",
     "contact.success": "Message Sent!",
     "contact.success.sub": "We'll get back to you within 24 hours.",
+    "contact.error": "Something went wrong. Please try again.",
+    "contact.api.success": "Thanks! Your request has been received.",
+    "contact.api.success.sub": "We review every message and reply quickly.",
+    "contact.api.error": "Unable to send right now. Please email us directly.",
+    "contact.error.invalid": "Please complete all fields with valid details.",
 
     // Footer
     "footer.rights": "All rights reserved.",
     "footer.tagline": "Crafted with passion by Codinou",
+    "footer.legal": "Legal",
+    "footer.privacy": "Privacy Policy",
+    "footer.terms": "Terms of Service",
   },
   fr: {
     // Navigation
     "nav.home": "Accueil",
     "nav.services": "Nos Services",
     "nav.contact": "Contactez-nous",
+    "nav.cta": "Demarrer un Projet",
 
     // Hero
     "hero.title": "Nous Créons des Sites Web",
@@ -154,12 +165,21 @@ const translations = {
     "contact.message": "Votre Message",
     "contact.message.placeholder": "Parlez-nous de votre projet...",
     "contact.send": "Envoyer",
+    "contact.sending": "Envoi...",
     "contact.success": "Message Envoyé !",
     "contact.success.sub": "Nous vous répondrons sous 24 heures.",
+    "contact.error": "Une erreur est survenue. Veuillez reessayer.",
+    "contact.api.success": "Merci ! Votre demande a ete recue.",
+    "contact.api.success.sub": "Nous examinons chaque message rapidement.",
+    "contact.api.error": "Envoi impossible pour le moment. Contactez-nous par email.",
+    "contact.error.invalid": "Veuillez remplir tous les champs avec des informations valides.",
 
     // Footer
     "footer.rights": "Tous droits réservés.",
     "footer.tagline": "Créé avec passion par Codinou",
+    "footer.legal": "Mentions",
+    "footer.privacy": "Confidentialite",
+    "footer.terms": "Conditions d'utilisation",
   },
 }
 

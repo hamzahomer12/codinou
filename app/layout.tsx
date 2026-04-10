@@ -33,6 +33,19 @@ export const metadata: Metadata = {
     title: "Codinou | Creative Web Development Studio",
     description: "Professional web development with a creative touch",
     type: "website",
+    images: [
+      {
+        url: "/codinou-logo.png",
+        width: 768,
+        height: 468,
+        alt: "Codinou official logo",
+      },
+    ],
+  },
+  icons: {
+    icon: "/codinou-logo.png",
+    shortcut: "/codinou-logo.png",
+    apple: "/codinou-logo.png",
   },
 }
 

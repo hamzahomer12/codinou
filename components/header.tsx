@@ -36,7 +36,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -54,6 +54,13 @@ export function Header() {
                 )}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              style={{ borderRadius: "14px 5px 14px 5px" }}
+            >
+              {t("nav.cta")}
+            </Link>
           </nav>
 
           {/* Language Switcher & Mobile Menu */}

@@ -12,18 +12,42 @@ import { useState } from "react"
 export default function ContactPage() {
   const { t } = useLanguage()
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 5000)
-    setFormData({ name: "", email: "", message: "" })
+    setErrorMessage("")
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}))
+        setErrorMessage(payload.error ?? t("contact.api.error"))
+        return
+      }
+
+      setIsSubmitted(true)
+      setTimeout(() => setIsSubmitted(false), 5000)
+      setFormData({ name: "", email: "", message: "" })
+    } catch {
+      setErrorMessage(t("contact.error"))
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -68,8 +92,8 @@ export default function ContactPage() {
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-secondary/20 mb-6">
                       <CheckCircle2 className="w-10 h-10 text-secondary" />
                     </div>
-                    <p className="text-2xl font-bold text-primary mb-2">{t("contact.success")}</p>
-                    <p className="text-muted-foreground">{t("contact.success.sub")}</p>
+                    <p className="text-2xl font-bold text-primary mb-2">{t("contact.api.success")}</p>
+                    <p className="text-muted-foreground">{t("contact.api.success.sub")}</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -118,10 +142,16 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {errorMessage && (
+                      <div className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                        {errorMessage}
+                      </div>
+                    )}
+
                     <div className="pt-4">
-                      <SketchyButton type="submit" variant="primary" className="w-full">
+                      <SketchyButton type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
                         <Send className="w-5 h-5 mr-2" />
-                        {t("contact.send")}
+                        {isSubmitting ? t("contact.sending") : t("contact.send")}
                       </SketchyButton>
                     </div>
                   </form>

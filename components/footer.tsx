@@ -40,6 +40,14 @@ export function Footer() {
 
           {/* Copyright */}
           <div className="text-center md:text-right">
+            <div className="flex items-center justify-center md:justify-end gap-4 mb-2">
+              <Link href="/privacy" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                {t("footer.privacy")}
+              </Link>
+              <Link href="/terms" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                {t("footer.terms")}
+              </Link>
+            </div>
             <p className="text-sm text-muted-foreground">
               © {currentYear} Codinou
             </p>
