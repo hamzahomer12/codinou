@@ -30,7 +30,7 @@ export default function HomePage() {
               <div className="flex justify-center mb-12 animate-fade-in-up">
                 <Image
                   src="/codinou-logo.png"
-                  alt="Codinou - Creative Web Development"
+                  alt="Codinouu - Creative Web Development"
                   width={280}
                   height={140}
                   className="h-auto w-64 md:w-72 float-animation"
