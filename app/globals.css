@@ -206,6 +206,25 @@
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
 
+@media (prefers-reduced-motion: reduce) {
+  .float-animation,
+  .animate-fade-in-up {
+    animation: none !important;
+  }
+
+  .stagger-1,
+  .stagger-2,
+  .stagger-3 {
+    animation-delay: 0s !important;
+  }
+
+  .wavy-underline {
+    text-decoration-style: solid;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+}
+
 /* Focus styles */
 input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(45, 58, 92, 0.1);

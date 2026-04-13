@@ -18,6 +18,10 @@ const translations = {
     "nav.contact": "Contact Us",
     "nav.cta": "Start a Project",
 
+    "a11y.skip": "Skip to main content",
+    "a11y.stickyCta": "Quick contact",
+    "a11y.mobileNav": "Primary navigation",
+
     // Hero
     "hero.title": "We Build Websites",
     "hero.subtitle": "That Tell Your Story",
@@ -68,7 +72,18 @@ const translations = {
     "services.ecom.feature5": "Ongoing support",
     "services.ecom.badge": "E-Com Exclusive",
 
+    "services.meta.timeline": "Typical timeline",
+    "services.starter.timeline": "2–4 weeks from kickoff to launch",
+    "services.pro.timeline": "4–8 weeks depending on scope",
+    "services.ecom.timeline": "8–12+ weeks for full store setup",
+
     "services.cta": "Get Started",
+
+    "trust.kicker": "How we work",
+    "trust.title": "From idea to launch",
+    "trust.step1": "Discovery & clear scope",
+    "trust.step2": "Design, build, and refine",
+    "trust.step3": "Launch with you — then support",
 
     // Contact
     "contact.title": "Get In Touch",
@@ -102,6 +117,10 @@ const translations = {
     "nav.services": "Nos Services",
     "nav.contact": "Contactez-nous",
     "nav.cta": "Demarrer un Projet",
+
+    "a11y.skip": "Aller au contenu principal",
+    "a11y.stickyCta": "Contact rapide",
+    "a11y.mobileNav": "Navigation principale",
 
     // Hero
     "hero.title": "Nous Créons des Sites Web",
@@ -153,7 +172,18 @@ const translations = {
     "services.ecom.feature5": "Support continu",
     "services.ecom.badge": "Exclusif E-Com",
 
+    "services.meta.timeline": "Délai typique",
+    "services.starter.timeline": "2 à 4 semaines du lancement au site en ligne",
+    "services.pro.timeline": "4 à 8 semaines selon le périmètre",
+    "services.ecom.timeline": "8 à 12+ semaines pour une boutique complète",
+
     "services.cta": "Commencer",
+
+    "trust.kicker": "Notre méthode",
+    "trust.title": "De l'idée au lancement",
+    "trust.step1": "Découverte et cadrage clair",
+    "trust.step2": "Conception, développement, ajustements",
+    "trust.step3": "Mise en ligne avec vous — puis accompagnement",
 
     // Contact
     "contact.title": "Contactez-Nous",
@@ -203,6 +233,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       setLanguage("en")
     }
   }, [])
+
+  useEffect(() => {
+    document.documentElement.lang = language === "fr" ? "fr" : "en"
+  }, [language])
 
   const t = (key: string): string => {
     return translations[language][key as keyof (typeof translations)["en"]] || key

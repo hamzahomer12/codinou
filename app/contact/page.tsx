@@ -54,12 +54,12 @@ export default function ContactPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1">
+      <main id="main" tabIndex={-1} className="flex-1 outline-none">
         {/* Hero Section */}
         <section className="relative py-20 lg:py-28 overflow-hidden">
           {/* Decorative elements */}
-          <div className="absolute top-20 right-16 w-16 h-16 border-2 border-secondary/15 rounded-full opacity-50" />
-          <div className="absolute bottom-28 left-20 w-10 h-10 border-2 border-primary/10 rounded-full opacity-40" />
+          <div className="absolute top-20 right-16 h-16 w-16 rounded-full border-2 border-secondary/15 opacity-50" aria-hidden />
+          <div className="absolute bottom-28 left-20 h-10 w-10 rounded-full border-2 border-primary/10 opacity-40" aria-hidden />
 
           <div className="container mx-auto px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
@@ -88,11 +88,16 @@ export default function ContactPage() {
             <div className="max-w-xl mx-auto">
               <SketchyCard variant="highlighted" className="animate-fade-in-up">
                 {isSubmitted ? (
-                  <div className="text-center py-16">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-secondary/20 mb-6">
-                      <CheckCircle2 className="w-10 h-10 text-secondary" />
+                  <div
+                    className="py-16 text-center"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
+                    <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-secondary/20" aria-hidden>
+                      <CheckCircle2 className="h-10 w-10 text-secondary" />
                     </div>
-                    <p className="text-2xl font-bold text-primary mb-2">{t("contact.api.success")}</p>
+                    <p className="mb-2 text-2xl font-bold text-primary">{t("contact.api.success")}</p>
                     <p className="text-muted-foreground">{t("contact.api.success.sub")}</p>
                   </div>
                 ) : (
@@ -143,7 +148,11 @@ export default function ContactPage() {
                     </div>
 
                     {errorMessage && (
-                      <div className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                      <div
+                        className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
+                        role="alert"
+                        aria-live="assertive"
+                      >
                         {errorMessage}
                       </div>
                     )}

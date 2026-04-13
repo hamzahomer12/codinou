@@ -8,7 +8,7 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 py-16 lg:py-24">
+      <main id="main" tabIndex={-1} className="flex-1 py-16 outline-none lg:py-24">
         <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
           <SketchyCard variant="default">
             <h1 className="text-3xl md:text-4xl font-bold text-primary mb-6">Privacy Policy</h1>

@@ -54,12 +54,12 @@ export default function ServicesPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1">
+      <main id="main" tabIndex={-1} className="flex-1 pb-24 outline-none md:pb-0">
         {/* Hero Section */}
         <section className="relative py-20 lg:py-28 overflow-hidden">
           {/* Decorative elements */}
-          <div className="absolute top-16 right-20 w-20 h-20 border-2 border-secondary/15 rounded-full opacity-50" />
-          <div className="absolute bottom-24 left-16 w-12 h-12 border-2 border-primary/10 rounded-full opacity-40" />
+          <div className="absolute top-16 right-20 h-20 w-20 rounded-full border-2 border-secondary/15 opacity-50" aria-hidden />
+          <div className="absolute bottom-24 left-16 h-12 w-12 rounded-full border-2 border-primary/10 opacity-40" aria-hidden />
 
           <div className="container mx-auto px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto">
@@ -108,9 +108,13 @@ export default function ServicesPage() {
                         <h2 className="text-2xl font-bold text-primary mb-2">
                           {t(`services.${service.key}.name`)}
                         </h2>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <p className="text-sm leading-relaxed text-muted-foreground">
                           {t(`services.${service.key}.desc`)}
                         </p>
+                        <p className="mt-3 text-xs font-medium uppercase tracking-wide text-secondary">
+                          {t("services.meta.timeline")}
+                        </p>
+                        <p className="text-sm font-medium text-foreground/90">{t(`services.${service.key}.timeline`)}</p>
                       </div>
 
                       <ul className="space-y-4 flex-1 mb-8">

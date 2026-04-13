@@ -4,6 +4,8 @@ import { Inter, Caveat, Fira_Code } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { LanguageProvider } from "@/context/language-context"
+import { SkipLink } from "@/components/skip-link"
+import { MobileStickyCta } from "@/components/mobile-sticky-cta"
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -43,8 +45,8 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/codinou-logo.png",
-    shortcut: "/codinou-logo.png",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
     apple: "/codinou-logo.png",
   },
 }
@@ -63,7 +65,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${caveat.variable} ${firaCode.variable} font-sans antialiased`}>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <SkipLink />
+          {children}
+          <MobileStickyCta />
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

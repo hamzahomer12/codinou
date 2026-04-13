@@ -15,25 +15,25 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1">
+      <main id="main" tabIndex={-1} className="flex-1 pb-24 outline-none md:pb-0">
         {/* Hero Section */}
         <section className="relative py-24 lg:py-36 overflow-hidden">
           {/* Subtle decorative elements */}
-          <div className="absolute top-20 left-10 w-24 h-24 border-2 border-primary/10 rounded-full opacity-50" />
-          <div className="absolute bottom-32 right-16 w-16 h-16 border-2 border-secondary/20 rounded-full opacity-40" />
-          <div className="absolute top-40 right-1/4 w-3 h-3 bg-secondary/30 rounded-full" />
-          <div className="absolute bottom-48 left-1/3 w-2 h-2 bg-primary/20 rounded-full" />
+          <div className="absolute top-20 left-10 w-24 h-24 border-2 border-primary/10 rounded-full opacity-50" aria-hidden />
+          <div className="absolute bottom-32 right-16 w-16 h-16 border-2 border-secondary/20 rounded-full opacity-40" aria-hidden />
+          <div className="absolute top-40 right-1/4 w-3 h-3 bg-secondary/30 rounded-full" aria-hidden />
+          <div className="absolute bottom-48 left-1/3 w-2 h-2 bg-primary/20 rounded-full" aria-hidden />
 
           <div className="container mx-auto px-6 lg:px-8 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               {/* Logo showcase */}
-              <div className="flex justify-center mb-12 animate-fade-in-up">
+              <div className="mb-12 flex justify-center animate-fade-in-up" aria-hidden>
                 <Image
                   src="/codinou-logo.png"
-                  alt="Codinouu - Creative Web Development"
+                  alt=""
                   width={280}
                   height={140}
-                  className="h-auto w-64 md:w-72 float-animation"
+                  className="float-animation h-auto w-64 md:w-72"
                   priority
                 />
               </div>
@@ -97,6 +97,35 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-primary mb-3">{t("about.feature3.title")}</h3>
                 <p className="text-muted-foreground leading-relaxed">{t("about.feature3.desc")}</p>
               </SketchyCard>
+            </div>
+          </div>
+        </section>
+
+        {/* Process / trust */}
+        <section className="border-y-2 border-primary/10 bg-primary/[0.02] py-16 lg:py-20" aria-labelledby="trust-heading">
+          <div className="container mx-auto px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="mb-3 inline-block font-mono text-sm uppercase tracking-wider text-secondary">
+                {"// "}
+                {t("trust.kicker")}
+              </span>
+              <h2 id="trust-heading" className="mb-10 text-balance text-2xl font-bold text-primary md:text-3xl">
+                {t("trust.title")}
+              </h2>
+              <ol className="grid gap-6 text-left sm:grid-cols-3 sm:gap-8">
+                <li className="rounded-2xl border-2 border-primary/15 bg-card/60 p-5 shadow-sm backdrop-blur-sm">
+                  <span className="mb-2 block font-mono text-sm font-semibold text-secondary">01</span>
+                  <p className="text-foreground/90 leading-relaxed">{t("trust.step1")}</p>
+                </li>
+                <li className="rounded-2xl border-2 border-primary/15 bg-card/60 p-5 shadow-sm backdrop-blur-sm">
+                  <span className="mb-2 block font-mono text-sm font-semibold text-secondary">02</span>
+                  <p className="text-foreground/90 leading-relaxed">{t("trust.step2")}</p>
+                </li>
+                <li className="rounded-2xl border-2 border-primary/15 bg-card/60 p-5 shadow-sm backdrop-blur-sm sm:col-span-1">
+                  <span className="mb-2 block font-mono text-sm font-semibold text-secondary">03</span>
+                  <p className="text-foreground/90 leading-relaxed">{t("trust.step3")}</p>
+                </li>
+              </ol>
             </div>
           </div>
         </section>

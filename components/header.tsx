@@ -5,13 +5,26 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useLanguage } from "@/context/language-context"
 import { Menu, X, Globe } from "lucide-react"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage()
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!isMenuOpen) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMenuOpen(false)
+        queueMicrotask(() => menuButtonRef.current?.focus())
+      }
+    }
+    document.addEventListener("keydown", onKeyDown)
+    return () => document.removeEventListener("keydown", onKeyDown)
+  }, [isMenuOpen])
 
   const navItems = [
     { href: "/", label: t("nav.home") },
@@ -20,7 +33,7 @@ export function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-primary/15" style={{ backgroundColor: "rgba(244, 241, 235, 0.92)", backdropFilter: "blur(12px)" }}>
+    <header className="sticky top-0 z-50 border-b-2 border-primary/15 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -30,7 +43,7 @@ export function Header() {
               alt="Codinou Logo"
               width={140}
               height={70}
-              className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="h-14 w-auto transition-transform duration-300 motion-safe:group-hover:scale-105"
               priority
             />
           </Link>
@@ -75,10 +88,14 @@ export function Header() {
             </button>
 
             {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-primary/5 transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+              aria-controls="site-mobile-nav"
             >
               {isMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
             </button>
@@ -87,7 +104,11 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-6 border-t border-primary/10 animate-fade-in-up">
+          <nav
+            id="site-mobile-nav"
+            className="md:hidden py-6 border-t border-primary/10 animate-fade-in-up"
+            aria-label={t("a11y.mobileNav")}
+          >
             <div className="flex flex-col gap-1">
               {navItems.map((item) => (
                 <Link
