@@ -28,7 +28,7 @@ const firaCode = Fira_Code({
 export const metadata: Metadata = {
   title: "Codinou | Web, Apps, AI, E-commerce & Odoo ERP",
   description:
-    "Codinou builds websites, web applications, AI automations, e-commerce, full digital experiences, and Odoo ERP solutions — from discovery to launch.",
+    "Codinou builds websites, web applications, AI automations, e-commerce, full digital experiences, and Odoo ERP solutions from discovery to launch.",
   keywords: [
     "web development",
     "web application",

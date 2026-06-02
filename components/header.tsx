@@ -27,10 +27,12 @@ export function Header() {
   }, [isMenuOpen])
 
   const navItems = [
-    { href: "/", label: t("nav.home") },
-    { href: "/services", label: t("nav.services") },
-    { href: "/contact", label: t("nav.contact") },
+    { href: "/", label: t("nav.home"), match: ["/"] },
+    { href: "/services", label: t("nav.services"), match: ["/services"] },
+    { href: "/contact", label: t("nav.contact"), match: ["/contact"] },
   ]
+
+  const isActive = (paths: string[]) => paths.includes(pathname)
 
   return (
     <header className="sticky top-0 z-50 border-b-2 border-primary/15 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
@@ -56,14 +58,14 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   "relative text-base font-medium tracking-wide transition-colors duration-200",
-                  pathname === item.href 
-                    ? "text-secondary" 
-                    : "text-foreground/80 hover:text-primary"
+                  isActive(item.match)
+                    ? "text-secondary"
+                    : "text-foreground/80 hover:text-primary",
                 )}
               >
                 {item.label}
-                {pathname === item.href && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-secondary rounded-full" />
+                {isActive(item.match) && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-secondary" />
                 )}
               </Link>
             ))}
@@ -116,10 +118,10 @@ export function Header() {
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={cn(
-                    "px-4 py-3 rounded-lg text-base font-medium transition-all duration-200",
-                    pathname === item.href 
-                      ? "bg-secondary/10 text-secondary" 
-                      : "text-foreground/80 hover:bg-primary/5 hover:text-primary"
+                    "rounded-lg px-4 py-3 text-base font-medium transition-all duration-200",
+                    isActive(item.match)
+                      ? "bg-secondary/10 text-secondary"
+                      : "text-foreground/80 hover:bg-primary/5 hover:text-primary",
                   )}
                 >
                   {item.label}

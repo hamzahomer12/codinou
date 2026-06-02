@@ -1,4 +1,4 @@
-import type { TranslationKey } from "./en"
+﻿import type { TranslationKey } from "./en"
 
 export const fr: Record<TranslationKey, string> = {
   "nav.home": "Accueil",
@@ -13,7 +13,7 @@ export const fr: Record<TranslationKey, string> = {
   "hero.title": "Produits & systèmes digitaux",
   "hero.subtitle": "De A à Z",
   "hero.description":
-    "Codinou vous accompagne du premier croquis à la mise en production : sites web, applications, automatisations IA, e-commerce, expériences digitales complètes et ERP Odoo — avec un périmètre clair à chaque étape.",
+    "Codinou vous accompagne du premier croquis à la mise en production : sites web, applications, automatisations IA, e-commerce, expériences digitales complètes et ERP Odoo. Avec un périmètre clair à chaque étape.",
   "hero.cta": "Voir les services",
   "hero.cta.secondary": "Réserver un appel découverte",
 
@@ -24,14 +24,14 @@ export const fr: Record<TranslationKey, string> = {
   "expertise.kicker": "Nos expertises",
   "expertise.title": "Six leviers pour votre croissance",
   "expertise.subtitle":
-    "Une seule expertise ou plusieurs combinées — nous alignons design, développement et opérations pour que tout fonctionne ensemble.",
+    "Une seule expertise ou plusieurs combinées. Nous alignons design, développement et opérations pour que tout fonctionne ensemble.",
   "expertise.learn": "Voir les forfaits",
 
   "service.website.name": "Création de sites web",
   "service.website.desc":
     "Sites vitrine rapides, accessibles et optimisés SEO, avec analytics et contenu que vous pouvez faire évoluer.",
   "service.website.detail":
-    "Conception et développement responsive sur stacks modernes (Next.js, CMS headless). Performance, HTML sémantique, données structurées et documentation de reprise — pas un template impossible à maintenir.",
+    "Conception et développement responsive sur stacks modernes (Next.js, CMS headless). Performance, HTML sémantique, données structurées et documentation de reprise. Pas un template impossible à maintenir.",
 
   "service.webapp.name": "Applications web",
   "service.webapp.desc":
@@ -41,7 +41,7 @@ export const fr: Record<TranslationKey, string> = {
 
   "service.ai.name": "Solutions IA",
   "service.ai.desc":
-    "Automatisations et agents IA connectés à vos outils — support, ops, ventes et base de connaissances interne.",
+    "Automatisations et agents IA connectés à vos outils. Support, ops, ventes et base de connaissances interne.",
   "service.ai.detail":
     "Intégration LLM et automatisation là où le gain est réel : tri de tickets, extraction de documents, MAJ CRM, agents avec validation humaine. Chaque cas d’usage a des indicateurs et des garde-fous, pas du buzz.",
 
@@ -49,24 +49,24 @@ export const fr: Record<TranslationKey, string> = {
   "service.ecommerce.desc":
     "Boutiques en ligne avec catalogue, paiements, logistique et UX orientée conversion.",
   "service.ecommerce.detail":
-    "Shopify, WooCommerce, vitrine sur mesure ou Odoo eCommerce — stock, paiements et ERP reliés pour ne plus gérer les commandes dans Excel. Checklist de lancement, analytics et bases CRO incluses.",
+    "Shopify, WooCommerce, vitrine sur mesure ou Odoo eCommerce. Stock, paiements et ERP reliés pour ne plus gérer les commandes dans Excel. Checklist de lancement, analytics et bases CRO incluses.",
 
   "service.digital.name": "Expériences digitales complètes",
   "service.digital.desc":
-    "Stratégie, design, build et lancement — une équipe du concept au go-live et au-delà.",
+    "Stratégie, design, build et lancement. Une équipe du concept au go-live et au-delà.",
   "service.digital.detail":
     "Quand il faut tout réunir : ateliers découverte, prototypes, sprints de build, environnements de staging, formation et plan de lancement que vos équipes peuvent porter.",
 
-  "service.odoo.name": "ERP — Solutions Odoo",
+  "service.odoo.name": "ERP. Solutions Odoo",
   "service.odoo.desc":
     "Mise en place Odoo, personnalisation, migrations et intégrations avec votre web et e-commerce.",
   "service.odoo.detail":
-    "CRM, ventes, stock, compta et production configurés pour vos processus. Modules sur mesure, APIs tierces, migration de données et formation — avec l’ingénierie produit Codinou.",
+    "CRM, ventes, stock, compta et production configurés pour vos processus. Modules sur mesure, APIs tierces, migration de données et formation. Avec l’ingénierie produit Codinou.",
 
   "packages.kicker": "Forfaits",
   "packages.title": "Livrables clairs, scope flexible",
   "packages.subtitle":
-    "Chaque niveau précise ce qui est inclus et les délais habituels. Devis final après découverte — sans surprise.",
+    "Chaque niveau précise ce qui est inclus et les délais habituels. Devis final après découverte. Sans surprise.",
   "packages.cta": "Demander un devis",
   "packages.bestFor": "Idéal pour",
   "packages.includes": "Inclus",
@@ -218,18 +218,18 @@ export const fr: Record<TranslationKey, string> = {
 
   "about.title": "Qui sommes-nous",
   "about.description":
-    "Nous allions vision produit et développement — la même équipe porte stratégie, design, code, IA et Odoo sans perte entre prestataires.",
+    "Nous allions vision produit et développement. La même équipe porte stratégie, design, code, IA et Odoo sans perte entre prestataires.",
   "about.feature1.title": "Bout en bout",
   "about.feature1.desc": "Un partenaire de la découverte au lancement, ERP et automatisations inclus si besoin.",
   "about.feature2.title": "Scope transparent",
   "about.feature2.desc": "Forfaits avec livrables et délais ; le sur-mesure est chiffré après une courte découverte.",
   "about.feature3.title": "Pensé pour durer",
-  "about.feature3.desc": "Code maintenable, handoff documenté et options de support — sans enfermement.",
+  "about.feature3.desc": "Code maintenable, handoff documenté et options de support. Sans enfermement.",
 
   "process.kicker": "Méthode",
   "process.title": "Un chemin clair de l’idée à la production",
   "process.step1.title": "Découvrir",
-  "process.step1.desc": "Objectifs, utilisateurs, systèmes et contraintes — scope écrit avant le build.",
+  "process.step1.desc": "Objectifs, utilisateurs, systèmes et contraintes. Scope écrit avant le build.",
   "process.step2.title": "Concevoir & planifier",
   "process.step2.desc": "UX, architecture et roadmap par phases alignées sur votre budget.",
   "process.step3.title": "Construire & tester",
@@ -239,7 +239,7 @@ export const fr: Record<TranslationKey, string> = {
 
   "tech.kicker": "Stack",
   "tech.title": "Technologies que nous utilisons",
-  "tech.subtitle": "Nous choisissons des outils maintenables et adaptés — pas à la mode.",
+  "tech.subtitle": "Nous choisissons des outils maintenables et adaptés. Pas à la mode.",
   "tech.next": "Next.js & React",
   "tech.react": "UI TypeScript",
   "tech.node": "APIs Node & workers",
@@ -263,10 +263,10 @@ export const fr: Record<TranslationKey, string> = {
     "Cas d’usage clairs, intégrations, garde-fous et métriques. Nous commençons petit (automation ou un agent) avant d’étendre.",
   "faq.q5": "Proposez-vous du support après lancement ?",
   "faq.a5":
-    "Oui — hypercare au lancement et forfaits mensuels pour correctifs, évolutions et Odoo/IA.",
+    "Oui. Hypercare au lancement et forfaits mensuels pour correctifs, évolutions et Odoo/IA.",
 
   "cta.title": "Prêt à cadrer votre projet ?",
-  "cta.subtitle": "Indiquez la ligne de service — réponse sous un jour ouvré.",
+  "cta.subtitle": "Indiquez la ligne de service. Réponse sous un jour ouvré.",
 
   "services.title": "Services & forfaits",
   "services.subtitle":
@@ -281,7 +281,7 @@ export const fr: Record<TranslationKey, string> = {
   "trust.step3": "Support au lancement et retainers",
 
   "contact.title": "Contactez-nous",
-  "contact.subtitle": "Partagez vos objectifs — nous proposerons le bon forfait ou plan sur mesure.",
+  "contact.subtitle": "Partagez vos objectifs. Nous proposerons le bon forfait ou plan sur mesure.",
   "contact.name": "Votre nom",
   "contact.name.placeholder": "Jean Dupont",
   "contact.email": "Votre email",
@@ -296,9 +296,9 @@ export const fr: Record<TranslationKey, string> = {
   "contact.service.odoo": "ERP Odoo",
   "contact.service.other": "Pas encore défini",
   "contact.message": "Votre message",
-  "contact.message.placeholder": "Décrivez le projet, le délai et les outils actuels...",
+  "contact.message.placeholder": "Décrivez le projet, le délai et les outils actuels.",
   "contact.send": "Envoyer",
-  "contact.sending": "Envoi...",
+  "contact.sending": "Envoi en cours",
   "contact.error": "Une erreur est survenue. Veuillez réessayer.",
   "contact.api.success": "Merci ! Votre demande a été reçue.",
   "contact.api.success.sub": "Nous lisons chaque message et répondons rapidement.",
@@ -306,7 +306,7 @@ export const fr: Record<TranslationKey, string> = {
   "contact.error.invalid": "Veuillez remplir tous les champs avec des informations valides.",
 
   "footer.rights": "Tous droits réservés.",
-  "footer.tagline": "Web, apps, IA, e-commerce & Odoo — par Codinou",
+  "footer.tagline": "Web, apps, IA, e-commerce et Odoo par Codinou",
   "footer.legal": "Mentions",
   "footer.privacy": "Confidentialité",
   "footer.terms": "Conditions d'utilisation",

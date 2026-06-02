@@ -17,36 +17,33 @@ export function PackageCard({ packageId, t, highlighted, className }: PackageCar
   return (
     <article
       className={cn(
-        "flex h-full flex-col rounded-2xl border-2 p-6 transition-all duration-300 motion-safe:hover:-translate-y-1",
+        "flex h-full flex-col rounded-2xl border p-5 sm:p-6",
         highlighted
-          ? "border-primary/40 bg-primary/[0.04] shadow-md"
-          : "border-primary/15 bg-card/70 shadow-sm",
+          ? "border-secondary/40 bg-secondary/[0.04] shadow-md"
+          : "border-primary/12 bg-card shadow-sm",
         className,
       )}
-      style={{ borderRadius: "20px 8px 20px 8px" }}
     >
-      <div className="mb-4">
-        <h4 className="text-xl font-bold text-primary">{t(`${key}.name`)}</h4>
-        <p className="mt-1 text-xs font-medium uppercase tracking-wide text-secondary">
-          {t("packages.timeline")}: {t(`${key}.timeline`)}
+      <header className="mb-4 border-b border-primary/10 pb-4">
+        <h4 className="text-lg font-bold text-primary">{t(`${key}.name`)}</h4>
+        <p className="mt-1 text-sm text-muted-foreground">
+          {t("packages.timeline")}: <span className="font-medium text-foreground/90">{t(`${key}.timeline`)}</span>
         </p>
-        <p className="mt-2 text-sm text-muted-foreground">
-          <span className="font-semibold text-foreground/80">{t("packages.bestFor")}: </span>
-          {t(`${key}.best`)}
-        </p>
-      </div>
+      </header>
 
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-primary/70">{t("packages.includes")}</p>
-      <ul className="mb-6 flex-1 space-y-2.5">
+      <ul className="mb-5 flex-1 space-y-2">
         {features.map((feature, idx) => (
-          <li key={idx} className="flex items-start gap-2.5 text-sm leading-relaxed text-foreground/85">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary/20">
-              <Check className="h-3 w-3 text-secondary" aria-hidden />
-            </span>
+          <li key={idx} className="flex items-start gap-2 text-sm leading-relaxed text-foreground/85">
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden />
             {feature}
           </li>
         ))}
       </ul>
+
+      <p className="mb-4 text-xs text-muted-foreground">
+        <span className="font-semibold text-foreground/75">{t("packages.bestFor")}: </span>
+        {t(`${key}.best`)}
+      </p>
 
       <SketchyButton href="/contact" variant={highlighted ? "primary" : "outline"} className="w-full text-sm">
         {t("packages.cta")}

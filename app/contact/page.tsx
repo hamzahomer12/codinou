@@ -67,37 +67,18 @@ export default function ContactPage() {
       <Header />
 
       <main id="main" tabIndex={-1} className="flex-1 outline-none">
-        {/* Hero Section */}
-        <section className="relative py-20 lg:py-28 overflow-hidden">
-          {/* Decorative elements */}
-          <div className="absolute top-20 right-16 h-16 w-16 rounded-full border-2 border-secondary/15 opacity-50" aria-hidden />
-          <div className="absolute bottom-28 left-20 h-10 w-10 rounded-full border-2 border-primary/10 opacity-40" aria-hidden />
-
-          <div className="container mx-auto px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-secondary/10 mb-8 animate-fade-in-up">
-                <Mail className="w-10 h-10 text-secondary" />
-              </div>
-
-              <span className="inline-block text-sm font-mono text-secondary mb-4 tracking-wider uppercase animate-fade-in-up stagger-1">
-                {"// "}{t("contact.title")}
-              </span>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 animate-fade-in-up stagger-2 text-balance">
-                {t("contact.title")}
-              </h1>
-
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed animate-fade-in-up stagger-3 text-pretty">
-                {t("contact.subtitle")}
-              </p>
+        <section className="border-b border-primary/10 py-14 lg:py-20">
+          <div className="container mx-auto max-w-2xl px-5 text-center sm:px-6 lg:px-8">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/10">
+              <Mail className="h-8 w-8 text-secondary" aria-hidden />
             </div>
+            <h1 className="mb-3 text-3xl font-bold text-balance text-primary sm:text-4xl">{t("contact.title")}</h1>
+            <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">{t("contact.subtitle")}</p>
           </div>
         </section>
 
-        {/* Contact Form */}
-        <section className="py-12 lg:py-20 notebook-lines">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="max-w-xl mx-auto">
+        <section className="py-12 lg:py-16">
+          <div className="container mx-auto max-w-xl px-5 sm:px-6 lg:px-8">
               <SketchyCard variant="highlighted" className="animate-fade-in-up">
                 {isSubmitted ? (
                   <div
@@ -196,7 +177,6 @@ export default function ContactPage() {
                   </form>
                 )}
               </SketchyCard>
-            </div>
           </div>
         </section>
       </main>

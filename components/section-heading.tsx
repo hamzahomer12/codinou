@@ -1,31 +1,33 @@
 import { cn } from "@/lib/utils"
 
 interface SectionHeadingProps {
-  kicker?: string
+  label?: string
   title: string
   subtitle?: string
   className?: string
   centered?: boolean
+  /** @deprecated use `label` */
+  kicker?: string
 }
 
 export function SectionHeading({
+  label,
   kicker,
   title,
   subtitle,
   className,
   centered = true,
 }: SectionHeadingProps) {
+  const eyebrow = label ?? kicker
+
   return (
-    <div className={cn(centered && "mx-auto max-w-3xl text-center", "mb-12 lg:mb-16", className)}>
-      {kicker && (
-        <span className="mb-3 inline-block font-mono text-sm uppercase tracking-wider text-secondary">
-          {"// "}
-          {kicker}
-        </span>
+    <div className={cn(centered && "mx-auto max-w-2xl text-center", "mb-10 lg:mb-12", className)}>
+      {eyebrow && (
+        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-secondary">{eyebrow}</p>
       )}
-      <h2 className="text-balance text-3xl font-bold text-primary md:text-4xl">{title}</h2>
+      <h2 className="text-balance text-2xl font-bold text-primary sm:text-3xl">{title}</h2>
       {subtitle && (
-        <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">{subtitle}</p>
+        <p className="mt-3 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">{subtitle}</p>
       )}
     </div>
   )
