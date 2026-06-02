@@ -26,14 +26,23 @@ const firaCode = Fira_Code({
 })
 
 export const metadata: Metadata = {
-  title: "Codinou | Creative Web Development Studio",
+  title: "Codinou | Web, Apps, AI, E-commerce & Odoo ERP",
   description:
-    "Codinou transforms your ideas into beautiful, functional websites. Professional web development with a creative touch - from simple sites to full e-commerce solutions.",
-  generator: "v0.app",
-  keywords: ["web development", "website creation", "e-commerce", "web design", "Codinou", "agence web", "creation site web"],
+    "Codinou builds websites, web applications, AI automations, e-commerce, full digital experiences, and Odoo ERP solutions — from discovery to launch.",
+  keywords: [
+    "web development",
+    "web application",
+    "AI automation",
+    "e-commerce",
+    "Odoo ERP",
+    "digital agency",
+    "Codinou",
+    "agence web",
+    "intégrateur Odoo",
+  ],
   openGraph: {
-    title: "Codinou | Creative Web Development Studio",
-    description: "Professional web development with a creative touch",
+    title: "Codinou | Web, Apps, AI, E-commerce & Odoo ERP",
+    description: "End-to-end digital studio: websites, apps, AI, e-commerce, and Odoo ERP",
     type: "website",
     images: [
       {

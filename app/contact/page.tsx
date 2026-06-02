@@ -17,8 +17,20 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    serviceInterest: "",
     message: "",
   })
+
+  const serviceOptions = [
+    { value: "", label: t("contact.service.placeholder") },
+    { value: "website", label: t("contact.service.website") },
+    { value: "webapp", label: t("contact.service.webapp") },
+    { value: "ai", label: t("contact.service.ai") },
+    { value: "ecommerce", label: t("contact.service.ecommerce") },
+    { value: "digital", label: t("contact.service.digital") },
+    { value: "odoo", label: t("contact.service.odoo") },
+    { value: "other", label: t("contact.service.other") },
+  ]
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -42,7 +54,7 @@ export default function ContactPage() {
 
       setIsSubmitted(true)
       setTimeout(() => setIsSubmitted(false), 5000)
-      setFormData({ name: "", email: "", message: "" })
+      setFormData({ name: "", email: "", serviceInterest: "", message: "" })
     } catch {
       setErrorMessage(t("contact.error"))
     } finally {
@@ -130,6 +142,24 @@ export default function ContactPage() {
                         className="w-full px-4 py-3.5 bg-background/80 border-2 border-primary/20 rounded-xl focus:border-primary/50 outline-none transition-all duration-200 text-foreground placeholder:text-muted-foreground/50"
                         placeholder={t("contact.email.placeholder")}
                       />
+                    </div>
+
+                    <div>
+                      <label htmlFor="serviceInterest" className="block text-sm font-semibold text-primary mb-2">
+                        {t("contact.service")}
+                      </label>
+                      <select
+                        id="serviceInterest"
+                        value={formData.serviceInterest}
+                        onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
+                        className="w-full px-4 py-3.5 bg-background/80 border-2 border-primary/20 rounded-xl focus:border-primary/50 outline-none transition-all duration-200 text-foreground"
+                      >
+                        {serviceOptions.map((opt) => (
+                          <option key={opt.value || "empty"} value={opt.value}>
+                            {opt.label}
+                          </option>
+                        ))}
+                      </select>
                     </div>
 
                     <div>

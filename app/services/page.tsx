@@ -3,143 +3,98 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useLanguage } from "@/context/language-context"
-import { SketchyCard } from "@/components/sketchy-card"
+import { SectionHeading } from "@/components/section-heading"
+import { PackageCard } from "@/components/package-card"
 import { SketchyButton } from "@/components/sketchy-button"
-import { Check, Sparkles, ShoppingCart, Zap } from "lucide-react"
+import { SERVICE_IDS, SERVICE_PACKAGES, type ServiceId } from "@/lib/services-data"
+import {
+  Globe,
+  Layers,
+  Bot,
+  ShoppingCart,
+  Rocket,
+  Boxes,
+  ArrowRight,
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+
+const SERVICE_ICONS: Record<ServiceId, LucideIcon> = {
+  website: Globe,
+  webapp: Layers,
+  ai: Bot,
+  ecommerce: ShoppingCart,
+  digital: Rocket,
+  odoo: Boxes,
+}
 
 export default function ServicesPage() {
   const { t } = useLanguage()
 
-  const services = [
-    {
-      key: "starter",
-      variant: "default" as const,
-      icon: Zap,
-      features: [
-        t("services.starter.feature1"),
-        t("services.starter.feature2"),
-        t("services.starter.feature3"),
-        t("services.starter.feature4"),
-      ],
-    },
-    {
-      key: "pro",
-      variant: "highlighted" as const,
-      icon: Sparkles,
-      badge: t("services.pro.badge"),
-      features: [
-        t("services.pro.feature1"),
-        t("services.pro.feature2"),
-        t("services.pro.feature3"),
-        t("services.pro.feature4"),
-        t("services.pro.feature5"),
-      ],
-    },
-    {
-      key: "ecom",
-      variant: "coral" as const,
-      icon: ShoppingCart,
-      badge: t("services.ecom.badge"),
-      features: [
-        t("services.ecom.feature1"),
-        t("services.ecom.feature2"),
-        t("services.ecom.feature3"),
-        t("services.ecom.feature4"),
-        t("services.ecom.feature5"),
-      ],
-    },
-  ]
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Header />
 
       <main id="main" tabIndex={-1} className="flex-1 pb-24 outline-none md:pb-0">
-        {/* Hero Section */}
-        <section className="relative py-20 lg:py-28 overflow-hidden">
-          {/* Decorative elements */}
+        <section className="relative overflow-hidden py-20 lg:py-28">
           <div className="absolute top-16 right-20 h-20 w-20 rounded-full border-2 border-secondary/15 opacity-50" aria-hidden />
-          <div className="absolute bottom-24 left-16 h-12 w-12 rounded-full border-2 border-primary/10 opacity-40" aria-hidden />
-
-          <div className="container mx-auto px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto">
-              <span className="inline-block text-sm font-mono text-secondary mb-4 tracking-wider uppercase animate-fade-in-up">
-                {"// "}{t("services.title")}
-              </span>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 animate-fade-in-up stagger-1 text-balance">
-                {t("services.title")}
-              </h1>
-
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed animate-fade-in-up stagger-2 text-pretty">
-                {t("services.subtitle")}
-              </p>
-            </div>
+          <div className="container relative z-10 mx-auto px-6 lg:px-8">
+            <SectionHeading
+              kicker={t("nav.services")}
+              title={t("services.title")}
+              subtitle={t("services.subtitle")}
+            />
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="py-12 lg:py-20 notebook-lines">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {services.map((service, index) => {
-                const Icon = service.icon
-                return (
-                  <div 
-                    key={service.key} 
-                    className={`relative animate-fade-in-up stagger-${index + 1}`}
-                  >
-                    {service.badge && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                        <span
-                          className="inline-block px-5 py-1.5 text-xs font-bold tracking-wide uppercase bg-secondary text-secondary-foreground shadow-md"
-                          style={{ borderRadius: "16px 4px 16px 4px" }}
-                        >
-                          {service.badge}
-                        </span>
-                      </div>
-                    )}
-
-                    <SketchyCard variant={service.variant} className="h-full flex flex-col pt-10">
-                      <div className="text-center mb-8">
-                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-5">
-                          <Icon className="w-8 h-8 text-primary" />
-                        </div>
-                        <h2 className="text-2xl font-bold text-primary mb-2">
-                          {t(`services.${service.key}.name`)}
-                        </h2>
-                        <p className="text-sm leading-relaxed text-muted-foreground">
-                          {t(`services.${service.key}.desc`)}
-                        </p>
-                        <p className="mt-3 text-xs font-medium uppercase tracking-wide text-secondary">
-                          {t("services.meta.timeline")}
-                        </p>
-                        <p className="text-sm font-medium text-foreground/90">{t(`services.${service.key}.timeline`)}</p>
-                      </div>
-
-                      <ul className="space-y-4 flex-1 mb-8">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center mt-0.5">
-                              <Check className="w-3 h-3 text-secondary" />
-                            </div>
-                            <span className="text-foreground/80 leading-relaxed">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <SketchyButton
-                        href="/contact"
-                        variant={service.variant === "highlighted" ? "primary" : "outline"}
-                        className="w-full"
-                      >
-                        {t("services.cta")}
-                      </SketchyButton>
-                    </SketchyCard>
+        {SERVICE_IDS.map((serviceId, sectionIndex) => {
+          const Icon = SERVICE_ICONS[serviceId]
+          const packages = SERVICE_PACKAGES[serviceId]
+          return (
+            <section
+              key={serviceId}
+              id={serviceId}
+              className={`scroll-mt-24 py-16 lg:py-24 ${sectionIndex % 2 === 1 ? "notebook-lines" : ""}`}
+            >
+              <div className="container mx-auto px-6 lg:px-8">
+                <div className="mx-auto mb-12 max-w-3xl">
+                  <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+                    <Icon className="h-7 w-7 text-primary" aria-hidden />
                   </div>
-                )
-              })}
-            </div>
+                  <h2 className="mb-4 text-3xl font-bold text-primary md:text-4xl">
+                    {t(`service.${serviceId}.name`)}
+                  </h2>
+                  <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
+                    {t(`service.${serviceId}.desc`)}
+                  </p>
+                  <p className="text-sm leading-relaxed text-foreground/85">
+                    <span className="font-semibold text-primary">{t("services.detail")}: </span>
+                    {t(`service.${serviceId}.detail`)}
+                  </p>
+                </div>
+
+                <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-3">
+                  {packages.map((pkgId, i) => (
+                    <PackageCard
+                      key={pkgId}
+                      packageId={pkgId}
+                      t={t}
+                      highlighted={i === 1}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )
+        })}
+
+        <section className="border-t-2 border-primary/10 py-20">
+          <div className="container mx-auto px-6 text-center lg:px-8">
+            <h2 className="mb-6 text-2xl font-bold text-primary md:text-3xl">{t("cta.title")}</h2>
+            <p className="mx-auto mb-8 max-w-xl text-muted-foreground">{t("cta.subtitle")}</p>
+            <SketchyButton href="/contact" variant="primary" className="text-lg">
+              {t("services.cta")}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </SketchyButton>
           </div>
         </section>
       </main>
