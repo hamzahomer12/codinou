@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation"
 import { createClient } from "@/lib/supabase/client"
 import { AdminNav } from "@/components/admin/admin-nav"
+import { AdminLogo } from "@/components/admin/admin-logo"
 import { LogOut } from "lucide-react"
 import type { Profile } from "@/lib/supabase/types"
 
@@ -24,7 +25,7 @@ export function AdminShell({ profile, children }: { profile: Profile; children: 
       <div className="flex min-h-screen flex-1 flex-col">
         <header className="glass-ios-header flex h-16 items-center justify-between px-6">
           <div className="md:hidden">
-            <p className="font-bold text-primary">Codinou Admin</p>
+            <AdminLogo size="sm" showAdminLabel />
           </div>
           <div className="ml-auto flex items-center gap-4 text-sm">
             <span className="text-muted-foreground">{profile.email}</span>

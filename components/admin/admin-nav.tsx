@@ -13,6 +13,7 @@ import {
   Settings,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { AdminLogo } from "@/components/admin/admin-logo"
 import type { AdminRole } from "@/lib/supabase/types"
 
 const NAV: {
@@ -37,8 +38,7 @@ export function AdminNav({ role }: { role: AdminRole }) {
   return (
     <nav className="flex flex-col gap-1 p-4">
       <div className="mb-6 px-3">
-        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Codinou</p>
-        <p className="text-lg font-bold text-primary">Admin</p>
+        <AdminLogo size="sm" showAdminLabel />
       </div>
       {NAV.filter((item) => item.roles.includes(role)).map((item) => {
         const active = pathname === item.href || (item.href !== "/admin" && pathname.startsWith(item.href))

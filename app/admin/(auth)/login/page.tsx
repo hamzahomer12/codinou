@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { createClient } from "@/lib/supabase/client"
+import { AdminLogo } from "@/components/admin/admin-logo"
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("")
@@ -32,8 +33,8 @@ export default function AdminLoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center p-6">
       <div className="glass-ios w-full max-w-md rounded-2xl p-8">
-        <h1 className="text-2xl font-bold text-primary">Codinou Admin</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Sign in to manage leads, orders, and projects.</p>
+        <AdminLogo size="lg" showAdminLabel />
+        <p className="mt-3 text-sm text-muted-foreground">Sign in to manage leads, orders, and projects.</p>
 
         <form onSubmit={handleLogin} className="mt-8 space-y-4">
           <label className="block text-sm">
