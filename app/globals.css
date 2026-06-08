@@ -121,12 +121,21 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
     background-image:
       radial-gradient(circle at 20% 10%, rgba(45, 58, 92, 0.05), transparent 35%),
       radial-gradient(circle at 80% 20%, rgba(232, 121, 121, 0.06), transparent 35%);
     background-attachment: fixed;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
@@ -206,9 +215,129 @@
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
 
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  transform: translate3d(0, 28px, 0);
+}
+
+.reveal-down {
+  transform: translate3d(0, -20px, 0);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Hero entrance */
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-enter {
+  animation: heroEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-enter-delay-1 { animation-delay: 0.12s; opacity: 0; }
+.hero-enter-delay-2 { animation-delay: 0.24s; opacity: 0; }
+.hero-enter-delay-3 { animation-delay: 0.36s; opacity: 0; }
+
+/* Parallax orbs */
+.parallax-orb {
+  border-radius: 50%;
+  filter: blur(48px);
+  will-change: transform;
+}
+
+.parallax-orb-navy {
+  background: radial-gradient(circle, rgba(45, 58, 92, 0.18) 0%, transparent 70%);
+}
+
+.parallax-orb-coral {
+  background: radial-gradient(circle, rgba(232, 121, 121, 0.2) 0%, transparent 70%);
+}
+
+.parallax-orb-blend {
+  background: radial-gradient(circle, rgba(45, 58, 92, 0.1) 0%, rgba(232, 121, 121, 0.12) 50%, transparent 72%);
+}
+
+/* FAQ answer fade */
+@keyframes faqAnswerIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.faq-answer {
+  animation: faqAnswerIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Fluid card lift */
+.card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-lift:hover {
+    transform: translate3d(0, -4px, 0);
+    box-shadow: 0 12px 28px -8px rgba(45, 58, 92, 0.12);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .float-animation,
-  .animate-fade-in-up {
+  .animate-fade-in-up,
+  .hero-enter,
+  .hero-enter-delay-1,
+  .hero-enter-delay-2,
+  .hero-enter-delay-3 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .parallax-orb {
+    transform: none !important;
+  }
+
+  .card-lift:hover {
+    transform: none !important;
+  }
+
+  .faq-answer {
     animation: none !important;
   }
 

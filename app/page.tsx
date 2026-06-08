@@ -3,6 +3,8 @@
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { HeroParallax } from "@/components/hero-parallax"
+import { Reveal } from "@/components/reveal"
 import { useLanguage } from "@/context/language-context"
 import { SketchyCard } from "@/components/sketchy-card"
 import { SketchyButton } from "@/components/sketchy-button"
@@ -41,25 +43,25 @@ export default function HomePage() {
       <Header />
 
       <main id="main" tabIndex={-1} className="flex-1 pb-20 outline-none md:pb-0">
-        {/* Hero */}
-        <PageSection variant="plain" className="pt-16 lg:pt-24">
-          <div className="mx-auto max-w-3xl text-center">
+        <PageSection variant="plain" className="relative overflow-hidden pt-16 lg:pt-24">
+          <HeroParallax />
+          <div className="relative z-10 mx-auto max-w-3xl text-center">
             <Image
               src="/codinou-logo.png"
               alt="Codinou"
               width={240}
               height={120}
-              className="mx-auto mb-8 h-auto w-56 md:w-64"
+              className="hero-enter mx-auto mb-8 h-auto w-56 md:w-64"
               priority
             />
-            <h1 className="mb-4 text-3xl font-bold leading-tight text-balance text-primary sm:text-4xl lg:text-5xl">
+            <h1 className="hero-enter hero-enter-delay-1 mb-4 text-3xl font-bold leading-tight text-balance text-primary sm:text-4xl lg:text-5xl">
               {t("hero.title")}
               <span className="mt-1 block text-secondary">{t("hero.subtitle")}</span>
             </h1>
-            <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="hero-enter hero-enter-delay-2 mx-auto mb-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {t("hero.description")}
             </p>
-            <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <div className="hero-enter hero-enter-delay-3 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <SketchyButton href="/services" variant="primary" className="sm:min-w-[200px]">
                 {t("hero.cta")}
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -71,60 +73,63 @@ export default function HomePage() {
           </div>
         </PageSection>
 
-        {/* Services */}
         <PageSection id="services" variant="muted" ariaLabelledby="services-heading">
-          <SectionHeading
-            label={t("expertise.kicker")}
-            title={t("expertise.title")}
-            subtitle={t("expertise.subtitle")}
-          />
+          <Reveal>
+            <SectionHeading
+              label={t("expertise.kicker")}
+              title={t("expertise.title")}
+              subtitle={t("expertise.subtitle")}
+            />
+          </Reveal>
           <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3 lg:gap-5">
-            {SERVICES.map((item) => (
-              <ExpertiseCard key={item.id} serviceId={item.id} icon={item.icon} t={t} />
+            {SERVICES.map((item, index) => (
+              <Reveal key={item.id} delay={index * 100}>
+                <ExpertiseCard serviceId={item.id} icon={item.icon} t={t} />
+              </Reveal>
             ))}
           </div>
         </PageSection>
 
-        {/* Why us */}
         <PageSection ariaLabelledby="about-heading">
-          <SectionHeading title={t("about.title")} subtitle={t("about.description")} />
+          <Reveal>
+            <SectionHeading title={t("about.title")} subtitle={t("about.description")} />
+          </Reveal>
           <div className="grid gap-5 md:grid-cols-3">
             {[
               { icon: Lightbulb, title: t("about.feature1.title"), desc: t("about.feature1.desc") },
               { icon: Code2, title: t("about.feature2.title"), desc: t("about.feature2.desc") },
               { icon: Heart, title: t("about.feature3.title"), desc: t("about.feature3.desc") },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-primary/12 bg-card p-6 text-center shadow-sm"
-              >
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                  <item.icon className="h-6 w-6 text-primary" aria-hidden />
+            ].map((item, index) => (
+              <Reveal key={item.title} delay={index * 90}>
+                <div className="card-lift rounded-2xl border border-primary/12 bg-card p-6 text-center shadow-sm">
+                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                    <item.icon className="h-6 w-6 text-primary" aria-hidden />
+                  </div>
+                  <h3 className="mb-2 font-bold text-primary">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                 </div>
-                <h3 className="mb-2 font-bold text-primary">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </PageSection>
 
-        {/* Process */}
         <PageSection variant="muted" ariaLabelledby="process-heading">
-          <SectionHeading label={t("process.kicker")} title={t("process.title")} />
+          <Reveal>
+            <SectionHeading label={t("process.kicker")} title={t("process.title")} />
+          </Reveal>
           <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[1, 2, 3, 4].map((step) => {
               const Icon = PROCESS_ICONS[step - 1]
               return (
-                <li
-                  key={step}
-                  className="rounded-2xl border border-primary/12 bg-card p-5 shadow-sm"
-                >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/15">
-                    <Icon className="h-5 w-5 text-secondary" aria-hidden />
-                  </div>
-                  <h3 className="mb-1.5 font-bold text-primary">{t(`process.step${step}.title`)}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{t(`process.step${step}.desc`)}</p>
-                </li>
+                <Reveal key={step} delay={(step - 1) * 80}>
+                  <li className="card-lift h-full rounded-2xl border border-primary/12 bg-card p-5 shadow-sm">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/15">
+                      <Icon className="h-5 w-5 text-secondary" aria-hidden />
+                    </div>
+                    <h3 className="mb-1.5 font-bold text-primary">{t(`process.step${step}.title`)}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{t(`process.step${step}.desc`)}</p>
+                  </li>
+                </Reveal>
               )
             })}
           </ol>
@@ -132,21 +137,22 @@ export default function HomePage() {
 
         <FaqSection t={t} />
 
-        {/* CTA */}
         <PageSection>
-          <SketchyCard variant="highlighted" className="mx-auto max-w-xl py-10 text-center">
-            <h2 className="mb-2 text-2xl font-bold text-primary">{t("cta.title")}</h2>
-            <p className="mb-6 text-muted-foreground">{t("cta.subtitle")}</p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <SketchyButton href="/contact" variant="primary">
-                {t("nav.contact")}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </SketchyButton>
-              <SketchyButton href="/services" variant="outline">
-                {t("nav.services")}
-              </SketchyButton>
-            </div>
-          </SketchyCard>
+          <Reveal>
+            <SketchyCard variant="highlighted" className="mx-auto max-w-xl py-10 text-center">
+              <h2 className="mb-2 text-2xl font-bold text-primary">{t("cta.title")}</h2>
+              <p className="mb-6 text-muted-foreground">{t("cta.subtitle")}</p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+                <SketchyButton href="/contact" variant="primary">
+                  {t("nav.contact")}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </SketchyButton>
+                <SketchyButton href="/services" variant="outline">
+                  {t("nav.services")}
+                </SketchyButton>
+              </div>
+            </SketchyCard>
+          </Reveal>
         </PageSection>
       </main>
 

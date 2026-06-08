@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useLanguage } from "@/context/language-context"
+import { Reveal } from "@/components/reveal"
 import { PageSection } from "@/components/page-section"
 import { SectionHeading } from "@/components/section-heading"
 import { ServicesNav } from "@/components/services-nav"
@@ -27,7 +28,9 @@ export default function ServicesPage() {
 
       <main id="main" tabIndex={-1} className="flex-1 pb-20 outline-none md:pb-0">
         <PageSection variant="plain" className="pt-12 lg:pt-16">
-          <SectionHeading title={t("services.title")} subtitle={t("services.subtitle")} />
+          <Reveal>
+            <SectionHeading title={t("services.title")} subtitle={t("services.subtitle")} />
+          </Reveal>
           <p className="mx-auto mb-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
             {t("services.pricingNote")}
           </p>
@@ -43,7 +46,7 @@ export default function ServicesPage() {
               id={serviceId}
               variant={index % 2 === 1 ? "muted" : "default"}
             >
-              <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
+              <Reveal className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
                   <Icon className="h-7 w-7 text-primary" aria-hidden />
                 </div>
@@ -55,15 +58,19 @@ export default function ServicesPage() {
                     {t(`service.${serviceId}.desc`)}
                   </p>
                 </div>
-              </div>
+              </Reveal>
 
+              <Reveal delay={80}>
               <p className="mb-8 max-w-3xl text-sm leading-relaxed text-foreground/80">
                 {t(`service.${serviceId}.detail`)}
               </p>
+              </Reveal>
 
               <div className="grid gap-5 lg:grid-cols-3">
                 {packages.map((pkgId, i) => (
-                  <PackageCard key={pkgId} packageId={pkgId} t={t} highlighted={i === 1} />
+                  <Reveal key={pkgId} delay={i * 90}>
+                    <PackageCard packageId={pkgId} t={t} highlighted={i === 1} />
+                  </Reveal>
                 ))}
               </div>
             </PageSection>

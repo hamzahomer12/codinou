@@ -16,7 +16,7 @@ export function ExpertiseCard({ serviceId, icon: Icon, t, className }: Expertise
     <Link
       href={`/services#${serviceId}`}
       className={cn(
-        "group flex h-full flex-col rounded-2xl border border-primary/15 bg-card p-6 shadow-sm transition-all duration-200 hover:border-primary/30 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "card-lift group flex h-full flex-col rounded-2xl border border-primary/15 bg-card p-6 shadow-sm hover:border-primary/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className,
       )}
     >
@@ -25,7 +25,7 @@ export function ExpertiseCard({ serviceId, icon: Icon, t, className }: Expertise
       </div>
       <h3 className="mb-2 text-lg font-bold text-primary">{t(`service.${serviceId}.name`)}</h3>
       <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">{t(`service.${serviceId}.desc`)}</p>
-      <span className="inline-flex items-center text-sm font-semibold text-secondary group-hover:text-primary">
+      <span className="inline-flex items-center text-sm font-semibold text-secondary transition-colors duration-300 group-hover:text-primary">
         {t("expertise.learn")}
         <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden />
       </span>
