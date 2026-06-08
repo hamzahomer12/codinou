@@ -18,9 +18,6 @@ import {
   Globe,
   Layers,
   Bot,
-  ShoppingCart,
-  Rocket,
-  Boxes,
   Search,
   PenTool,
   Hammer,
@@ -32,9 +29,6 @@ const SERVICES: { id: ServiceId; icon: typeof Globe }[] = [
   { id: "website", icon: Globe },
   { id: "webapp", icon: Layers },
   { id: "ai", icon: Bot },
-  { id: "ecommerce", icon: ShoppingCart },
-  { id: "digital", icon: Rocket },
-  { id: "odoo", icon: Boxes },
 ]
 
 const PROCESS_ICONS = [Search, PenTool, Hammer, RocketIcon]
@@ -84,7 +78,7 @@ export default function HomePage() {
             title={t("expertise.title")}
             subtitle={t("expertise.subtitle")}
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+          <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3 lg:gap-5">
             {SERVICES.map((item) => (
               <ExpertiseCard key={item.id} serviceId={item.id} icon={item.icon} t={t} />
             ))}

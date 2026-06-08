@@ -4,7 +4,12 @@ import { Check } from "lucide-react"
 import { SketchyButton } from "@/components/sketchy-button"
 import { PayButton } from "@/components/pay-button"
 import { useLanguage } from "@/context/language-context"
-import { PACKAGE_DEPOSITS_EUR, formatDeposit } from "@/lib/stripe-payments"
+import {
+  PACKAGE_DEPOSITS_EUR,
+  PACKAGE_PRICES_EUR,
+  formatDeposit,
+  formatMoney,
+} from "@/lib/stripe-payments"
 import { cn } from "@/lib/utils"
 import type { PackageId } from "@/lib/services-data"
 
@@ -19,7 +24,9 @@ export function PackageCard({ packageId, t, highlighted, className }: PackageCar
   const { language } = useLanguage()
   const key = `pkg.${packageId}`
   const features = [1, 2, 3, 4].map((i) => t(`${key}.f${i}`))
-  const depositCents = (PACKAGE_DEPOSITS_EUR[packageId] ?? 0) * 100
+  const priceCents = PACKAGE_PRICES_EUR[packageId] * 100
+  const depositCents = PACKAGE_DEPOSITS_EUR[packageId] * 100
+  const priceFormatted = formatMoney(priceCents, "eur", language)
   const depositFormatted = formatDeposit(depositCents, "eur", language)
 
   return (
@@ -34,7 +41,11 @@ export function PackageCard({ packageId, t, highlighted, className }: PackageCar
     >
       <header className="mb-4 border-b border-primary/10 pb-4">
         <h4 className="text-lg font-bold text-primary">{t(`${key}.name`)}</h4>
-        <p className="mt-1 text-sm text-muted-foreground">
+        <p className="mt-2 text-2xl font-bold text-secondary">
+          {t("packages.from")} {priceFormatted}
+        </p>
+        <p className="mt-1 text-xs text-muted-foreground">{t("packages.depositNote")}</p>
+        <p className="mt-2 text-sm text-muted-foreground">
           {t("packages.timeline")}: <span className="font-medium text-foreground/90">{t(`${key}.timeline`)}</span>
         </p>
       </header>

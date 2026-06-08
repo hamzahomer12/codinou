@@ -9,16 +9,13 @@ import { ServicesNav } from "@/components/services-nav"
 import { PackageCard } from "@/components/package-card"
 import { SketchyButton } from "@/components/sketchy-button"
 import { SERVICE_IDS, SERVICE_PACKAGES, type ServiceId } from "@/lib/services-data"
-import { Globe, Layers, Bot, ShoppingCart, Rocket, Boxes, ArrowRight } from "lucide-react"
+import { Globe, Layers, Bot, ArrowRight } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 const SERVICE_ICONS: Record<ServiceId, LucideIcon> = {
   website: Globe,
   webapp: Layers,
   ai: Bot,
-  ecommerce: ShoppingCart,
-  digital: Rocket,
-  odoo: Boxes,
 }
 
 export default function ServicesPage() {
@@ -31,7 +28,10 @@ export default function ServicesPage() {
       <main id="main" tabIndex={-1} className="flex-1 pb-20 outline-none md:pb-0">
         <PageSection variant="plain" className="pt-12 lg:pt-16">
           <SectionHeading title={t("services.title")} subtitle={t("services.subtitle")} />
-          <ServicesNav t={t} className="mx-auto max-w-4xl" />
+          <p className="mx-auto mb-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+            {t("services.pricingNote")}
+          </p>
+          <ServicesNav t={t} className="mx-auto max-w-3xl" />
         </PageSection>
 
         {SERVICE_IDS.map((serviceId, index) => {

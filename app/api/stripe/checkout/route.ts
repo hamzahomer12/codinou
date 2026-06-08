@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { z } from "zod"
 import { getAppUrl } from "@/lib/app-url"
 import { getStripe } from "@/lib/stripe"
-import { getEnvPriceId, getPackagePayment } from "@/lib/stripe-payments"
+import { getEnvPriceId, getPackagePayment, PACKAGE_PRICES_EUR } from "@/lib/stripe-payments"
 import type { PackageId } from "@/lib/services-data"
 
 const checkoutSchema = z.object({
@@ -52,8 +52,8 @@ export async function POST(request: Request) {
                 currency: payment.currency,
                 unit_amount: payment.amountCents,
                 product_data: {
-                  name: `${payment.name} (kickoff deposit)`,
-                  description: payment.description,
+                  name: `${payment.name} kickoff deposit`,
+                  description: `30% deposit for ${payment.name} (project from €${PACKAGE_PRICES_EUR[packageId]}). ${payment.description}`,
                 },
               },
               quantity: 1,

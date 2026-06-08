@@ -8,26 +8,34 @@ export type StripePaymentOption = {
   currency: "eur"
 }
 
-/** Kickoff deposit per package in EUR (adjust here or use STRIPE_PRICE_* env vars). */
+/**
+ * Market-aligned project prices (France/EU 2025–2026).
+ * Studio positioning: above solo landing-page gigs, below large agencies.
+ * Sources: na-web.fr, WebCraftDev, EID Lab MVP benchmarks, AI automation agency guides.
+ */
+export const PACKAGE_PRICES_EUR: Record<PackageId, number> = {
+  launch: 990,
+  growth: 2490,
+  scale: 5900,
+  mvp: 7900,
+  product: 14900,
+  platform: 29900,
+  automate: 1890,
+  agents: 4490,
+  "ai-custom": 9900,
+}
+
+/** ~30% kickoff deposit, rounded for clean checkout. */
 export const PACKAGE_DEPOSITS_EUR: Record<PackageId, number> = {
-  launch: 290,
-  growth: 590,
-  scale: 990,
-  mvp: 790,
-  product: 1490,
-  platform: 2490,
-  automate: 390,
-  agents: 790,
-  "ai-custom": 990,
-  store: 590,
-  "store-growth": 990,
-  omnichannel: 1990,
-  sprint: 490,
-  build: 1490,
-  partner: 990,
-  "odoo-essentials": 690,
-  "odoo-custom": 1290,
-  "odoo-enterprise": 2490,
+  launch: 300,
+  growth: 750,
+  scale: 1750,
+  mvp: 2400,
+  product: 4500,
+  platform: 8990,
+  automate: 590,
+  agents: 1350,
+  "ai-custom": 2990,
 }
 
 function envPriceId(packageId: PackageId): string | undefined {
@@ -56,8 +64,13 @@ export function getPackagePayment(
 }
 
 export function formatDeposit(amountCents: number, currency: string, locale: string): string {
+  return formatMoney(amountCents, currency, locale)
+}
+
+export function formatMoney(amountCents: number, currency: string, locale: string): string {
   return new Intl.NumberFormat(locale === "fr" ? "fr-FR" : "en-EU", {
     style: "currency",
     currency: currency.toUpperCase(),
+    maximumFractionDigits: 0,
   }).format(amountCents / 100)
 }
