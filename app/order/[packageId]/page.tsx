@@ -9,12 +9,7 @@ import { SketchyCard } from "@/components/sketchy-card"
 import { OrderBriefForm } from "@/components/order-brief-form"
 import { useLanguage } from "@/context/language-context"
 import { isValidPackageId } from "@/lib/package-brief"
-import {
-  PACKAGE_DEPOSITS_EUR,
-  PACKAGE_PRICES_EUR,
-  formatDeposit,
-  formatMoney,
-} from "@/lib/stripe-payments"
+import { PACKAGE_PRICES_EUR, formatMoney } from "@/lib/stripe-payments"
 import type { PackageId } from "@/lib/services-data"
 
 export default function OrderPage() {
@@ -28,8 +23,7 @@ export default function OrderPage() {
 
   const pkg = packageId as PackageId
   const key = `pkg.${pkg}`
-  const priceFormatted = formatMoney(PACKAGE_PRICES_EUR[pkg] * 100, "eur", language)
-  const depositFormatted = formatDeposit(PACKAGE_DEPOSITS_EUR[pkg] * 100, "eur", language)
+  const basePriceFormatted = formatMoney(PACKAGE_PRICES_EUR[pkg] * 100, "eur", language)
   const features = [1, 2, 3, 4].map((i) => t(`${key}.f${i}`))
 
   return (
@@ -55,11 +49,9 @@ export default function OrderPage() {
 
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
               <span className="text-xl font-bold text-secondary">
-                {t("packages.from")} {priceFormatted}
+                {t("packages.from")} {basePriceFormatted}
               </span>
-              <span className="text-muted-foreground">
-                {t("payment.deposit")} {depositFormatted}
-              </span>
+              <span className="text-muted-foreground">{t("order.price.updatesLive")}</span>
               <span className="text-muted-foreground">
                 {t("packages.timeline")}: {t(`${key}.timeline`)}
               </span>
@@ -77,15 +69,10 @@ export default function OrderPage() {
         </section>
 
         <section className="py-10 lg:py-14">
-          <div className="container mx-auto max-w-2xl px-5 sm:px-6 lg:px-8">
+          <div className="container mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
             <SketchyCard variant="highlighted">
               <p className="mb-6 text-sm leading-relaxed text-muted-foreground">{t("order.intro")}</p>
-              <OrderBriefForm
-                packageId={pkg}
-                packageName={t(`${key}.name`)}
-                depositLabel={`${t("payment.deposit")} ${depositFormatted}`}
-                t={t}
-              />
+              <OrderBriefForm packageId={pkg} packageName={t(`${key}.name`)} t={t} />
             </SketchyCard>
           </div>
         </section>

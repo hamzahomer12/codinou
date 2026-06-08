@@ -43,6 +43,8 @@ export async function POST(request: Request) {
           packageId: session.metadata?.packageId,
           customerEmail: session.customer_details?.email ?? brief?.email,
           customerName: session.metadata?.customerName ?? brief?.fullName,
+          totalEur: session.metadata?.totalEur,
+          depositEur: session.metadata?.depositEur,
           brief,
           amountTotal: session.amount_total,
           currency: session.currency,
