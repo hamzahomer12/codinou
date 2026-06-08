@@ -13,14 +13,14 @@ export const fr: Record<TranslationKey, string> = {
   "hero.title": "Sites web, applications",
   "hero.subtitle": "& IA sur mesure",
   "hero.description":
-    "Codinou est un studio de développement web créatif. Nous créons des produits digitaux propres et personnalisés pour entreprises et porteurs de projet : de la simple landing page à l'application web avec automatisation intelligente.",
+    "Codinou est un studio de développement web créatif. Sites, applications web, boutiques e-commerce avec panneau admin et automatisation IA — tarifs uniques clairs, sans abonnement plateforme obligatoire.",
   "hero.cta": "Voir forfaits & tarifs",
   "hero.cta.secondary": "Réserver un appel découverte",
 
   "expertise.kicker": "Nos expertises",
-  "expertise.title": "Trois services cœur",
+  "expertise.title": "Quatre services cœur",
   "expertise.subtitle":
-    "Sites web, applications web et solutions IA. Choisissez un service ou combinez-les dans un même projet.",
+    "Sites web, applications web, e-commerce et IA. Choisissez un service ou combinez-les dans un même projet.",
   "expertise.learn": "Voir les forfaits",
 
   "service.website.name": "Création de sites web",
@@ -40,6 +40,48 @@ export const fr: Record<TranslationKey, string> = {
     "Automatisations et agents IA connectés à vos outils pour supprimer le travail répétitif.",
   "service.ai.detail":
     "Automatisations (Make, Zapier, APIs), agents support ou ventes, intégrations LLM avec validation humaine. Les agences IA facturent souvent 2 000 à 15 000 € ; notre entrée automatisation démarre à 1 890 €.",
+
+  "service.ecommerce.name": "E-commerce pour entreprises existantes",
+  "service.ecommerce.desc":
+    "Boutiques sur mesure avec panneau admin intégré — un seul paiement, pas d'abonnement plateforme, pas de jungle de plugins.",
+  "service.ecommerce.detail":
+    "Pensé pour commerces, marques et distributeurs qui vendent déjà en boutique, sur Shopify, WooCommerce ou les réseaux sociaux. Vitrine personnalisée, gestion des commandes et tableau de bord admin : nous gérons l'hébergement et la maintenance. Zéro code et zéro configuration de votre côté — import catalogue, paiements et modules sur mesure inclus. Forfaits dès 3 290 € en une fois, vs Shopify Basic ~36 €/mois (1 300 €+ sur 3 ans) plus apps, thèmes et commissions.",
+
+  "ecommerce.compare.title": "Pourquoi une boutique sur mesure bat Shopify ou WooCommerce",
+  "ecommerce.compare.intro":
+    "Les plateformes vous louent un template. Nous construisons votre boutique et votre admin comme un logiciel à vous : prix projet fixe, processus adaptés à votre métier, et addons sur mesure — pas les limites d'une marketplace.",
+  "ecommerce.compare.onetime.kicker": "Modèle Codinou",
+  "ecommerce.compare.onetime.title": "Paiement unique au projet",
+  "ecommerce.compare.onetime.desc":
+    "Payez une fois design, développement, panneau admin et mise en ligne. Forfaits typiques 3 290–12 900 €. Hébergement optionnel dès ~49 €/mois — pas de SaaS obligatoire, pas de stack d'apps payantes pour faire tourner la boutique.",
+  "ecommerce.compare.monthly.kicker": "Plateformes classiques",
+  "ecommerce.compare.monthly.title": "Coûts récurrents + extensions",
+  "ecommerce.compare.monthly.desc":
+    "Shopify : 27–230+ €/mois avant les apps (avis, bundles, B2B, ERP souvent 20–80 € chacune). WooCommerce : hébergement, mises à jour, conflits de plugins et heures dev chaque mois. Les coûts s'accumulent pendant des années — vous louez, vous ne possédez pas.",
+  "ecommerce.compare.table.feature": "Ce qui compte",
+  "ecommerce.compare.row.cost": "Modèle tarifaire",
+  "ecommerce.compare.row.admin": "Admin & exploitation",
+  "ecommerce.compare.row.custom": "Fonctions sur mesure",
+  "ecommerce.compare.row.setup": "Mise en place & maintenance",
+  "ecommerce.compare.row.fees": "Frais plateforme / transaction",
+  "ecommerce.compare.yes.cost": "Construction unique, vous possédez",
+  "ecommerce.compare.yes.admin": "Panneau admin personnalisé inclus",
+  "ecommerce.compare.yes.custom": "Addons sur mesure intégrés",
+  "ecommerce.compare.yes.setup": "On configure tout",
+  "ecommerce.compare.yes.fees": "Stripe uniquement — pas de % plateforme",
+  "ecommerce.compare.no.cost": "Abonnement mensuel à vie",
+  "ecommerce.compare.no.admin": "Dashboard générique + apps payantes",
+  "ecommerce.compare.no.custom": "Limites thème & contournements plugins",
+  "ecommerce.compare.no.setup": "Vous ou une agence configurez",
+  "ecommerce.compare.no.fees": "% plateforme + abonnements apps",
+  "ecommerce.compare.benefit.1":
+    "Migration depuis Shopify, WooCommerce, Etsy ou Excel — import catalogue et formation de votre équipe.",
+  "ecommerce.compare.benefit.2":
+    "Admin produits, commandes, clients, promos et stock — pensé pour votre façon de travailler.",
+  "ecommerce.compare.benefit.3":
+    "Modules sur mesure : tarifs B2B, devis, sync ERP, fidélité, abonnements — sans compromis marketplace.",
+  "ecommerce.compare.benefit.4":
+    "Zéro code de votre côté. Design, paiements, livraison, SEO et lancement — vous vendez, on s'occupe du reste.",
 
   "packages.kicker": "Forfaits & tarifs",
   "packages.title": "Prix affichés, scope clair",
@@ -123,6 +165,30 @@ export const fr: Record<TranslationKey, string> = {
   "pkg.ai-custom.f3": "Déploiement prod & garde-fous",
   "pkg.ai-custom.f4": "Retainer tuning optionnel",
 
+  "pkg.shop-starter.name": "Boutique Starter",
+  "pkg.shop-starter.best": "Entreprises qui passent au online (jusqu'à ~75 produits)",
+  "pkg.shop-starter.timeline": "4 à 6 semaines",
+  "pkg.shop-starter.f1": "Vitrine sur mesure + jusqu'à 75 produits",
+  "pkg.shop-starter.f2": "Paiement Stripe & admin commandes",
+  "pkg.shop-starter.f3": "Import catalogue Shopify, Woo ou CSV",
+  "pkg.shop-starter.f4": "Formation, go-live & corrections 30 jours",
+
+  "pkg.shop-pro.name": "Commerce Pro",
+  "pkg.shop-pro.best": "Marques en croissance : stock, promos & zones de livraison",
+  "pkg.shop-pro.timeline": "6 à 10 semaines",
+  "pkg.shop-pro.f1": "Admin complet : produits, commandes, clients, stock",
+  "pkg.shop-pro.f2": "Codes promo, transporteurs & emails transactionnels",
+  "pkg.shop-pro.f3": "Blog, SEO, analytics & lien CRM/newsletter",
+  "pkg.shop-pro.f4": "2 addons sur mesure inclus",
+
+  "pkg.shop-enterprise.name": "Commerce Sur Mesure",
+  "pkg.shop-enterprise.best": "Entreprises établies : B2B, ERP & workflows custom",
+  "pkg.shop-enterprise.timeline": "10 à 16 semaines",
+  "pkg.shop-enterprise.f1": "Portails B2B, tarifs par palier & devis",
+  "pkg.shop-enterprise.f2": "Intégrations ERP / compta / entrepôt",
+  "pkg.shop-enterprise.f3": "Multilingue, multi-entrepôt & rôles avancés",
+  "pkg.shop-enterprise.f4": "Roadmap de modules construits avec votre équipe",
+
   "about.title": "Qui sommes-nous",
   "about.description":
     "Un petit studio orienté qualité : code sur mesure, communication claire, et des produits qui fonctionnent en conditions réelles.",
@@ -155,9 +221,9 @@ export const fr: Record<TranslationKey, string> = {
   "faq.q3": "Peut-on combiner site web et IA ?",
   "faq.a3":
     "Oui. Beaucoup de clients lancent un site puis ajoutent automatisations ou un agent. On peut planifier les deux dans une même roadmap.",
-  "faq.q4": "Faites-vous e-commerce ou ERP ?",
+  "faq.q4": "En quoi votre e-commerce diffère-t-il de Shopify ?",
   "faq.a4":
-    "Notre focus : sites, apps web et IA. Paiement ou réservation simple dans une app : oui. Gros e-commerce ou ERP : devis séparé.",
+    "Shopify et WooCommerce facturent chaque mois et vous enferment dans thèmes et apps. Nous livrons boutique + admin pour un prix projet unique — vous possédez la solution. Zéro code ni plugins de votre côté ; nous intégrons vos modules sur mesure (B2B, ERP, fidélité). Voir nos forfaits Commerce dès 3 290 €.",
   "faq.q5": "Proposez-vous du support après lancement ?",
   "faq.a5":
     "Oui. Chaque forfait inclut le support au go-live. Forfaits mensuels possibles pour évolutions et correctifs.",
@@ -167,11 +233,11 @@ export const fr: Record<TranslationKey, string> = {
 
   "services.title": "Services & tarifs",
   "services.subtitle":
-    "Neuf forfaits pour sites, apps et IA. Tarifs alignés sur le marché français et européen 2025–2026.",
+    "Douze forfaits pour sites, apps, e-commerce et IA. Tarifs alignés sur le marché français et européen 2025–2026.",
   "services.cta": "Devis sur mesure",
   "services.detail": "Ce qui est inclus",
   "services.pricingNote":
-    "Référence marché : sites freelance 800–5 000 €, agences 3 000–15 000 €, MVP 8 000–25 000 €, IA 2 000–15 000 €. Codinou se place entre freelance qualité et petite agence.",
+    "Référence marché : sites 800–5 000 €, boutiques Shopify 3 000–15 000 € + mensualités, e-commerce sur mesure 8 000–40 000 €, MVP 8 000–25 000 €. Codinou propose un paiement unique plutôt qu'une stack d'abonnements.",
 
   "contact.title": "Contactez-nous",
   "contact.subtitle": "Décrivez votre idée, budget et délai. Nous recommanderons le bon forfait.",
@@ -184,6 +250,7 @@ export const fr: Record<TranslationKey, string> = {
   "contact.service.website": "Création de sites web",
   "contact.service.webapp": "Applications web",
   "contact.service.ai": "Solutions IA",
+  "contact.service.ecommerce": "E-commerce / boutique en ligne",
   "contact.service.other": "Pas encore défini",
   "contact.message": "Votre message",
   "contact.message.placeholder": "Décrivez le projet, le forfait souhaité et le délai.",
@@ -196,7 +263,7 @@ export const fr: Record<TranslationKey, string> = {
   "contact.error.invalid": "Veuillez remplir tous les champs avec des informations valides.",
 
   "footer.rights": "Tous droits réservés.",
-  "footer.tagline": "Sites, apps & IA par Codinou",
+  "footer.tagline": "Sites, apps, e-commerce & IA par Codinou",
   "footer.legal": "Mentions",
   "footer.privacy": "Confidentialité",
   "footer.terms": "Conditions d'utilisation",
@@ -229,6 +296,9 @@ export const fr: Record<TranslationKey, string> = {
   "order.section.automate": "Détails automatisation",
   "order.section.agents": "Détails agent IA",
   "order.section.ai-custom": "Détails IA sur mesure",
+  "order.section.shop-starter": "Détails Boutique Starter",
+  "order.section.shop-pro": "Détails Commerce Pro",
+  "order.section.shop-enterprise": "Détails Commerce Sur Mesure",
   "order.submit": "Accepter les conditions et payer l'acompte",
   "order.select.placeholder": "Choisir une option",
   "order.yes": "Oui",
@@ -409,4 +479,58 @@ export const fr: Record<TranslationKey, string> = {
   "order.price.ai-custom.aiType.agents": "Workflow multi-agents",
   "order.price.ai-custom.aiType.vision": "IA vision / documents",
   "order.price.ai-custom.aiType.mixed": "Système IA mixte",
+
+  "order.shop.businessName": "Nom de l'entreprise / marque",
+  "order.shop.businessName.ph": "Raison sociale ou nom commercial",
+  "order.shop.currentPlatform": "Où vendez-vous aujourd'hui ?",
+  "order.shop.platform.shopify": "Shopify",
+  "order.shop.platform.woocommerce": "WooCommerce",
+  "order.shop.platform.etsy": "Etsy / marketplace",
+  "order.shop.platform.social": "Instagram / réseaux uniquement",
+  "order.shop.platform.prestashop": "PrestaShop",
+  "order.shop.platform.magento": "Magento / Adobe Commerce",
+  "order.shop.platform.none": "Hors ligne / pas encore en ligne",
+  "order.shop.platform.other": "Autre plateforme",
+  "order.shop.productCount": "Nombre de produits",
+  "order.shop.productCount.25": "1 à 25 produits",
+  "order.shop.productCount.75": "26 à 75 produits",
+  "order.shop.productCount.150": "76 à 150 produits",
+  "order.shop.productCount.500": "151 à 500 produits",
+  "order.shop.productCount.500plus": "500+ produits",
+  "order.shop.productCount.1000": "200 à 1 000 références",
+  "order.shop.productCount.1000plus": "1 000+ références",
+  "order.shop.productCount.variants": "Matrice de variantes importante",
+  "order.shop.catalogStatus": "Données produits & photos prêtes ?",
+  "order.shop.customNeeds": "Besoins spécifiques ou irritants actuels",
+  "order.shop.customNeeds.ph": "Bundles, abonnements, B2B, ERP, fidélité… ce que les apps Shopify gèrent mal",
+  "order.shop.needWholesale": "Tarifs grossiste / B2B nécessaires ?",
+  "order.shop.shippingZones": "Zones & transporteurs",
+  "order.shop.shippingZones.ph": "France, UE, international, Colissimo, Mondial Relay, etc.",
+  "order.shop.integrations": "Outils à connecter",
+  "order.shop.integrations.ph": "ERP, compta, CRM, entrepôt, newsletter…",
+  "order.shop.businessModel": "À qui vendez-vous ?",
+  "order.shop.model.b2c": "Particuliers (B2C)",
+  "order.shop.model.b2b": "Professionnels (B2B)",
+  "order.shop.model.both": "B2C + B2B",
+  "order.shop.customModules": "Modules sur mesure souhaités",
+  "order.shop.customModules.ph": "Devis, portail client, tarifs par palier, planification production…",
+  "order.shop.erpNeeds": "Sync ERP / back-office",
+  "order.shop.erpNeeds.ph": "Sage, Odoo, Cegid, API custom…",
+  "order.shop.languages": "Langues de la boutique",
+  "order.shop.languages.ph": "ex. français + anglais",
+
+  "order.price.customModules": "Modules sur mesure",
+  "order.price.shop-starter.productCount.26_75": "26 à 75 produits",
+  "order.price.shop-starter.productCount.76_150": "76 à 150 produits",
+  "order.price.shop-starter.catalogStatus.partial": "Aide catalogue partiel",
+  "order.price.shop-starter.catalogStatus.none": "Mise en place catalogue",
+  "order.price.shop-starter.currentPlatform.other": "Migration atypique",
+  "order.price.shop-pro.productCount.151_500": "151 à 500 produits",
+  "order.price.shop-pro.productCount.500+": "500+ produits",
+  "order.price.shop-pro.needWholesale.yes": "Portail B2B / grossiste",
+  "order.price.shop-pro.needWholesale.later": "Grossiste (phase ultérieure)",
+  "order.price.shop-enterprise.businessModel.b2b": "Parcours commerce B2B",
+  "order.price.shop-enterprise.businessModel.both": "Architecture B2C + B2B",
+  "order.price.shop-enterprise.productCount.1000+": "Catalogue 1 000+ références",
+  "order.price.shop-enterprise.productCount.variants-heavy": "Variantes complexes",
 }

@@ -26,6 +26,7 @@ export default function ContactPage() {
     { value: "website", label: t("contact.service.website") },
     { value: "webapp", label: t("contact.service.webapp") },
     { value: "ai", label: t("contact.service.ai") },
+    { value: "ecommerce", label: t("contact.service.ecommerce") },
     { value: "other", label: t("contact.service.other") },
   ]
 

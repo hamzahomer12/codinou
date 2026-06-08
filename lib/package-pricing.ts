@@ -48,6 +48,19 @@ const SELECT_DELTAS: Partial<Record<PackageId, Record<string, Record<string, num
   "ai-custom": {
     aiType: { rag: 0, agents: 2200, vision: 2800, mixed: 3500 },
   },
+  "shop-starter": {
+    productCount: { "26-75": 350, "76-150": 750 },
+    catalogStatus: CONTENT_STATUS_DELTA,
+    currentPlatform: { shopify: 0, woocommerce: 0, other: 200 },
+  },
+  "shop-pro": {
+    productCount: { "151-500": 600, "500+": 1400 },
+    needWholesale: { yes: 1200, later: 600 },
+  },
+  "shop-enterprise": {
+    businessModel: { b2b: 1800, both: 2800 },
+    productCount: { "1000+": 1600, "variants-heavy": 2200 },
+  },
 }
 
 function countListItems(text: string): number {
@@ -89,6 +102,42 @@ function applySelectDeltas(
 
 function applyTextDeltas(packageId: PackageId, brief: BriefValues, lineItems: PriceLineItem[]): number {
   let sum = 0
+
+  if (packageId === "shop-pro" || packageId === "shop-enterprise") {
+    const integrations = brief.integrations?.trim() ?? brief.erpNeeds?.trim() ?? ""
+    if (integrations.length > 40) {
+      const extra = integrations.length > 120 ? 900 : 450
+      sum += extra
+      lineItems.push({
+        id: "shop_integrations",
+        labelKey: "order.price.integrations",
+        amountEur: extra,
+      })
+    }
+  }
+
+  if (packageId === "shop-enterprise") {
+    const modules = brief.customModules?.trim() ?? ""
+    const count = countListItems(modules)
+    if (count > 2) {
+      const extra = Math.min((count - 2) * 450, 2700)
+      sum += extra
+      lineItems.push({
+        id: "custom_modules",
+        labelKey: "order.price.customModules",
+        amountEur: extra,
+      })
+    }
+    const languages = brief.languages?.trim() ?? ""
+    if (languages && isMultilingual(languages)) {
+      sum += 900
+      lineItems.push({
+        id: "shop_multilingual",
+        labelKey: "order.price.multilingual",
+        amountEur: 900,
+      })
+    }
+  }
 
   if (packageId === "growth" || packageId === "scale" || packageId === "product") {
     const integrations = brief.integrations?.trim() ?? ""

@@ -1,4 +1,4 @@
-import type { PackageId } from "@/lib/services-data"
+import type { PackageId, ServiceId } from "@/lib/services-data"
 
 export type BriefFieldType = "text" | "email" | "tel" | "textarea" | "select" | "url"
 
@@ -529,6 +529,194 @@ export const PACKAGE_BRIEF_FIELDS: Record<PackageId, BriefField[]> = {
       placeholderKey: "order.field.targetDate.ph",
     },
   ],
+  "shop-starter": [
+    {
+      id: "businessName",
+      type: "text",
+      labelKey: "order.shop.businessName",
+      placeholderKey: "order.shop.businessName.ph",
+      required: true,
+    },
+    {
+      id: "currentPlatform",
+      type: "select",
+      labelKey: "order.shop.currentPlatform",
+      required: true,
+      options: [
+        { value: "shopify", labelKey: "order.shop.platform.shopify" },
+        { value: "woocommerce", labelKey: "order.shop.platform.woocommerce" },
+        { value: "etsy", labelKey: "order.shop.platform.etsy" },
+        { value: "social", labelKey: "order.shop.platform.social" },
+        { value: "none", labelKey: "order.shop.platform.none" },
+        { value: "other", labelKey: "order.shop.platform.other" },
+      ],
+    },
+    {
+      id: "productCount",
+      type: "select",
+      labelKey: "order.shop.productCount",
+      required: true,
+      options: [
+        { value: "1-25", labelKey: "order.shop.productCount.25" },
+        { value: "26-75", labelKey: "order.shop.productCount.75" },
+        { value: "76-150", labelKey: "order.shop.productCount.150" },
+      ],
+    },
+    {
+      id: "catalogStatus",
+      type: "select",
+      labelKey: "order.shop.catalogStatus",
+      required: true,
+      options: [
+        { value: "ready", labelKey: "order.content.ready" },
+        { value: "partial", labelKey: "order.content.partial" },
+        { value: "none", labelKey: "order.content.none" },
+      ],
+    },
+    {
+      id: "customNeeds",
+      type: "textarea",
+      labelKey: "order.shop.customNeeds",
+      placeholderKey: "order.shop.customNeeds.ph",
+      rows: 3,
+    },
+    {
+      id: "targetDate",
+      type: "text",
+      labelKey: "order.field.targetDate",
+      placeholderKey: "order.field.targetDate.ph",
+    },
+  ],
+  "shop-pro": [
+    {
+      id: "businessName",
+      type: "text",
+      labelKey: "order.shop.businessName",
+      placeholderKey: "order.shop.businessName.ph",
+      required: true,
+    },
+    {
+      id: "currentPlatform",
+      type: "select",
+      labelKey: "order.shop.currentPlatform",
+      required: true,
+      options: [
+        { value: "shopify", labelKey: "order.shop.platform.shopify" },
+        { value: "woocommerce", labelKey: "order.shop.platform.woocommerce" },
+        { value: "prestashop", labelKey: "order.shop.platform.prestashop" },
+        { value: "magento", labelKey: "order.shop.platform.magento" },
+        { value: "other", labelKey: "order.shop.platform.other" },
+      ],
+    },
+    {
+      id: "productCount",
+      type: "select",
+      labelKey: "order.shop.productCount",
+      required: true,
+      options: [
+        { value: "50-150", labelKey: "order.shop.productCount.150" },
+        { value: "151-500", labelKey: "order.shop.productCount.500" },
+        { value: "500+", labelKey: "order.shop.productCount.500plus" },
+      ],
+    },
+    {
+      id: "needWholesale",
+      type: "select",
+      labelKey: "order.shop.needWholesale",
+      required: true,
+      options: [
+        { value: "no", labelKey: "order.no" },
+        { value: "yes", labelKey: "order.yes" },
+        { value: "later", labelKey: "order.later" },
+      ],
+    },
+    {
+      id: "shippingZones",
+      type: "textarea",
+      labelKey: "order.shop.shippingZones",
+      placeholderKey: "order.shop.shippingZones.ph",
+      required: true,
+      rows: 2,
+    },
+    {
+      id: "integrations",
+      type: "textarea",
+      labelKey: "order.shop.integrations",
+      placeholderKey: "order.shop.integrations.ph",
+      rows: 2,
+    },
+    {
+      id: "customNeeds",
+      type: "textarea",
+      labelKey: "order.shop.customNeeds",
+      placeholderKey: "order.shop.customNeeds.ph",
+      rows: 3,
+    },
+    {
+      id: "targetDate",
+      type: "text",
+      labelKey: "order.field.targetDate",
+      placeholderKey: "order.field.targetDate.ph",
+    },
+  ],
+  "shop-enterprise": [
+    {
+      id: "businessName",
+      type: "text",
+      labelKey: "order.shop.businessName",
+      placeholderKey: "order.shop.businessName.ph",
+      required: true,
+    },
+    {
+      id: "businessModel",
+      type: "select",
+      labelKey: "order.shop.businessModel",
+      required: true,
+      options: [
+        { value: "b2c", labelKey: "order.shop.model.b2c" },
+        { value: "b2b", labelKey: "order.shop.model.b2b" },
+        { value: "both", labelKey: "order.shop.model.both" },
+      ],
+    },
+    {
+      id: "productCount",
+      type: "select",
+      labelKey: "order.shop.productCount",
+      required: true,
+      options: [
+        { value: "200-1000", labelKey: "order.shop.productCount.1000" },
+        { value: "1000+", labelKey: "order.shop.productCount.1000plus" },
+        { value: "variants-heavy", labelKey: "order.shop.productCount.variants" },
+      ],
+    },
+    {
+      id: "customModules",
+      type: "textarea",
+      labelKey: "order.shop.customModules",
+      placeholderKey: "order.shop.customModules.ph",
+      required: true,
+      rows: 4,
+    },
+    {
+      id: "erpNeeds",
+      type: "textarea",
+      labelKey: "order.shop.erpNeeds",
+      placeholderKey: "order.shop.erpNeeds.ph",
+      rows: 2,
+    },
+    {
+      id: "languages",
+      type: "text",
+      labelKey: "order.shop.languages",
+      placeholderKey: "order.shop.languages.ph",
+    },
+    {
+      id: "targetDate",
+      type: "text",
+      labelKey: "order.field.targetDate",
+      placeholderKey: "order.field.targetDate.ph",
+    },
+  ],
 }
 
 export const ALL_PACKAGE_IDS = Object.keys(PACKAGE_BRIEF_FIELDS) as PackageId[]
@@ -541,9 +729,10 @@ export function getBriefFields(packageId: PackageId): BriefField[] {
   return [...COMMON_BRIEF_FIELDS, ...PACKAGE_BRIEF_FIELDS[packageId]]
 }
 
-export function getServiceIdForPackage(packageId: PackageId): "website" | "webapp" | "ai" {
+export function getServiceIdForPackage(packageId: PackageId): ServiceId {
   if (["launch", "growth", "scale"].includes(packageId)) return "website"
   if (["mvp", "product", "platform"].includes(packageId)) return "webapp"
+  if (["shop-starter", "shop-pro", "shop-enterprise"].includes(packageId)) return "ecommerce"
   return "ai"
 }
 

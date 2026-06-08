@@ -11,14 +11,14 @@
   "hero.title": "Websites, Web Apps",
   "hero.subtitle": "& AI Built for You",
   "hero.description":
-    "Codinou is a creative web development studio. We build clean, custom digital products for businesses and founders: from a simple landing page to a full web app with intelligent automation built in.",
+    "Codinou is a creative web development studio. We build clean, custom digital products for businesses and founders: websites, web apps, ecommerce stores with admin panels, and intelligent automation — all with clear one-time pricing.",
   "hero.cta": "View Packages & Prices",
   "hero.cta.secondary": "Book a Discovery Call",
 
   "expertise.kicker": "What we do",
-  "expertise.title": "Three core services",
+  "expertise.title": "Four core services",
   "expertise.subtitle":
-    "Websites, web applications, and AI solutions. Pick one or combine them in a single project.",
+    "Websites, web apps, ecommerce, and AI. Pick one or combine them in a single project.",
   "expertise.learn": "See packages",
 
   "service.website.name": "Website Development",
@@ -38,6 +38,48 @@
     "Automations and AI agents that connect your tools and remove repetitive work from your team.",
   "service.ai.detail":
     "Workflow automations (Make, Zapier, custom APIs), support or sales agents, and guarded LLM integrations with human review. Typical agency setups run €2,000 to €15,000; our entry automation package starts at €1,890.",
+
+  "service.ecommerce.name": "Ecommerce for Existing Businesses",
+  "service.ecommerce.desc":
+    "Custom online stores with a built-in admin panel — one payment, no monthly platform fees, no plugin maze.",
+  "service.ecommerce.detail":
+    "Built for shops, brands, and distributors already selling offline or on Shopify, WooCommerce, or social. You get a tailor-made storefront, order management, and an admin dashboard we host and maintain. No coding or configuration on your side — we handle setup, payments, catalog import, and custom add-ons sur mesure. Packages start at €3,290 one-time vs. Shopify Basic at ~€36/month (€1,300+ over 3 years) plus apps, themes, and transaction fees.",
+
+  "ecommerce.compare.title": "Why a custom store beats Shopify or WooCommerce",
+  "ecommerce.compare.intro":
+    "Platforms rent you a template. We build your store and admin panel as owned software: fixed project price, workflows shaped to your business, and addons built exactly how you need them — not how a marketplace allows.",
+  "ecommerce.compare.onetime.kicker": "Codinou model",
+  "ecommerce.compare.onetime.title": "One-time project payment",
+  "ecommerce.compare.onetime.desc":
+    "Pay once for design, development, admin panel, and launch. Typical packages €3,290–€12,900. Optional hosting support from ~€49/month — no mandatory SaaS bill, no per-seat fees, no paid app stack required to run your shop.",
+  "ecommerce.compare.monthly.kicker": "Typical platforms",
+  "ecommerce.compare.monthly.title": "Recurring platform + add-on costs",
+  "ecommerce.compare.monthly.desc":
+    "Shopify: €27–€230+/month before apps (reviews, bundles, B2B, ERP sync often €20–€80 each). WooCommerce: hosting, security patches, plugin conflicts, and developer hours every month. Costs compound for years while you rent, not own.",
+  "ecommerce.compare.table.feature": "What matters",
+  "ecommerce.compare.row.cost": "Pricing model",
+  "ecommerce.compare.row.admin": "Admin & operations",
+  "ecommerce.compare.row.custom": "Custom features",
+  "ecommerce.compare.row.setup": "Setup & maintenance",
+  "ecommerce.compare.row.fees": "Transaction / platform fees",
+  "ecommerce.compare.yes.cost": "One-time build, you own it",
+  "ecommerce.compare.yes.admin": "Custom admin panel included",
+  "ecommerce.compare.yes.custom": "Sur-mesure addons built in",
+  "ecommerce.compare.yes.setup": "We configure everything",
+  "ecommerce.compare.yes.fees": "Stripe only — no platform cut",
+  "ecommerce.compare.no.cost": "Monthly plan forever",
+  "ecommerce.compare.no.admin": "Generic dashboard + paid apps",
+  "ecommerce.compare.no.custom": "Theme limits & plugin workarounds",
+  "ecommerce.compare.no.setup": "You or an agency configure",
+  "ecommerce.compare.no.fees": "Platform % + app subscriptions",
+  "ecommerce.compare.benefit.1":
+    "Migrate from Shopify, WooCommerce, Etsy, or spreadsheets without learning a new platform — we import catalog and train your team.",
+  "ecommerce.compare.benefit.2":
+    "Admin panel for products, orders, customers, promos, and stock — designed around how your team already works.",
+  "ecommerce.compare.benefit.3":
+    "Custom sur-mesure modules: B2B pricing, quotes, ERP sync, loyalty, subscriptions — no marketplace compromise.",
+  "ecommerce.compare.benefit.4":
+    "Zero code on your side. We handle design, payments, shipping rules, SEO, and launch — you focus on selling.",
 
   "packages.kicker": "Packages & pricing",
   "packages.title": "Published prices, clear scope",
@@ -121,6 +163,30 @@
   "pkg.ai-custom.f3": "Production deployment & guardrails",
   "pkg.ai-custom.f4": "Optional tuning retainer",
 
+  "pkg.shop-starter.name": "Shop Starter",
+  "pkg.shop-starter.best": "Existing businesses moving online (up to ~75 products)",
+  "pkg.shop-starter.timeline": "4 to 6 weeks",
+  "pkg.shop-starter.f1": "Custom storefront + up to 75 products",
+  "pkg.shop-starter.f2": "Stripe checkout & order admin panel",
+  "pkg.shop-starter.f3": "Catalog import from Shopify, Woo, or CSV",
+  "pkg.shop-starter.f4": "Training, launch support & 30-day fixes",
+
+  "pkg.shop-pro.name": "Commerce Pro",
+  "pkg.shop-pro.best": "Growing brands with inventory, promos & shipping zones",
+  "pkg.shop-pro.timeline": "6 to 10 weeks",
+  "pkg.shop-pro.f1": "Full admin: products, orders, customers, stock",
+  "pkg.shop-pro.f2": "Promo codes, zones, carriers & email notifications",
+  "pkg.shop-pro.f3": "Blog, SEO, analytics & CRM/newsletter hook",
+  "pkg.shop-pro.f4": "2 custom sur-mesure addons included",
+
+  "pkg.shop-enterprise.name": "Commerce Enterprise",
+  "pkg.shop-enterprise.best": "Established businesses needing B2B, ERP & custom workflows",
+  "pkg.shop-enterprise.timeline": "10 to 16 weeks",
+  "pkg.shop-enterprise.f1": "B2B portals, tiered pricing & quote flows",
+  "pkg.shop-enterprise.f2": "ERP / accounting / warehouse integrations",
+  "pkg.shop-enterprise.f3": "Multi-language, multi-warehouse & advanced roles",
+  "pkg.shop-enterprise.f4": "Roadmap of custom modules built with your team",
+
   "about.title": "Who We Are",
   "about.description":
     "A small studio focused on craft: custom code, clear communication, and shipping products that work in the real world.",
@@ -153,9 +219,9 @@
   "faq.q3": "Can you combine a website with AI?",
   "faq.a3":
     "Yes. Many clients launch a site first, then add automations or an AI agent. We can plan both in one roadmap.",
-  "faq.q4": "Do you build e-commerce or ERP?",
+  "faq.q4": "How is your ecommerce different from Shopify?",
   "faq.a4":
-    "Our focus is websites, web apps, and AI. We can add simple payment or booking flows inside a web app; large e-commerce or ERP projects are quoted separately.",
+    "Shopify and WooCommerce charge every month and lock you into themes and apps. We deliver a custom store and admin panel for a one-time project fee — you own the solution. No coding or plugin configuration on your side; we build sur-mesure addons (B2B, ERP sync, loyalty) as part of the project. See our Commerce packages from €3,290.",
   "faq.q5": "Do you offer support after launch?",
   "faq.a5":
     "Yes. Every package includes launch support. We also offer monthly retainers for updates, fixes, and new features.",
@@ -165,11 +231,11 @@
 
   "services.title": "Services & Pricing",
   "services.subtitle":
-    "Nine packages across websites, web apps, and AI. Prices researched against the French and EU market for 2025–2026.",
+    "Twelve packages across websites, web apps, ecommerce, and AI. Prices researched against the French and EU market for 2025–2026.",
   "services.cta": "Get a custom quote",
   "services.detail": "What is included",
   "services.pricingNote":
-    "Reference: freelance sites €800–€5,000, agency sites €3,000–€15,000, MVPs €8,000–€25,000, AI automations €2,000–€15,000. Codinou sits in the quality freelance to lean-agency range.",
+    "Reference: freelance sites €800–€5,000, Shopify builds €3,000–€15,000 + monthly fees, custom ecommerce €8,000–€40,000, MVPs €8,000–€25,000. Codinou offers one-time ownership pricing instead of recurring platform stacks.",
 
   "contact.title": "Get In Touch",
   "contact.subtitle": "Tell us your idea, budget, and timeline. We will recommend the right package.",
@@ -182,6 +248,7 @@
   "contact.service.website": "Website development",
   "contact.service.webapp": "Web application development",
   "contact.service.ai": "AI solutions",
+  "contact.service.ecommerce": "Ecommerce / online store",
   "contact.service.other": "Not sure yet",
   "contact.message": "Your Message",
   "contact.message.placeholder": "Describe your project, preferred package, and timeline.",
@@ -194,7 +261,7 @@
   "contact.error.invalid": "Please complete all fields with valid details.",
 
   "footer.rights": "All rights reserved.",
-  "footer.tagline": "Websites, web apps & AI by Codinou",
+  "footer.tagline": "Websites, web apps, ecommerce & AI by Codinou",
   "footer.legal": "Legal",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms of Service",
@@ -227,6 +294,9 @@
   "order.section.automate": "Automation details",
   "order.section.agents": "AI agent details",
   "order.section.ai-custom": "Custom AI details",
+  "order.section.shop-starter": "Shop Starter details",
+  "order.section.shop-pro": "Commerce Pro details",
+  "order.section.shop-enterprise": "Commerce Enterprise details",
   "order.submit": "Accept terms & pay deposit",
   "order.select.placeholder": "Select an option",
   "order.yes": "Yes",
@@ -407,6 +477,60 @@
   "order.price.ai-custom.aiType.agents": "Multi-agent workflow",
   "order.price.ai-custom.aiType.vision": "Vision / document AI",
   "order.price.ai-custom.aiType.mixed": "Mixed AI system",
+
+  "order.shop.businessName": "Business / brand name",
+  "order.shop.businessName.ph": "Legal or trading name",
+  "order.shop.currentPlatform": "Where do you sell today?",
+  "order.shop.platform.shopify": "Shopify",
+  "order.shop.platform.woocommerce": "WooCommerce",
+  "order.shop.platform.etsy": "Etsy / marketplace",
+  "order.shop.platform.social": "Instagram / social only",
+  "order.shop.platform.prestashop": "PrestaShop",
+  "order.shop.platform.magento": "Magento / Adobe Commerce",
+  "order.shop.platform.none": "Offline / no online store yet",
+  "order.shop.platform.other": "Other platform",
+  "order.shop.productCount": "How many products?",
+  "order.shop.productCount.25": "1 to 25 products",
+  "order.shop.productCount.75": "26 to 75 products",
+  "order.shop.productCount.150": "76 to 150 products",
+  "order.shop.productCount.500": "151 to 500 products",
+  "order.shop.productCount.500plus": "500+ products",
+  "order.shop.productCount.1000": "200 to 1,000 SKUs",
+  "order.shop.productCount.1000plus": "1,000+ SKUs",
+  "order.shop.productCount.variants": "Large variant matrix",
+  "order.shop.catalogStatus": "Product data & photos ready?",
+  "order.shop.customNeeds": "Custom features or pain points today",
+  "order.shop.customNeeds.ph": "Bundles, subscriptions, B2B, ERP, loyalty, anything Shopify apps cannot do well…",
+  "order.shop.needWholesale": "Wholesale or B2B pricing needed?",
+  "order.shop.shippingZones": "Shipping regions & carriers",
+  "order.shop.shippingZones.ph": "France only, EU, international, Colissimo, Mondial Relay, etc.",
+  "order.shop.integrations": "Tools to connect",
+  "order.shop.integrations.ph": "ERP, accounting, CRM, warehouse, newsletter…",
+  "order.shop.businessModel": "Who do you sell to?",
+  "order.shop.model.b2c": "Consumers (B2C)",
+  "order.shop.model.b2b": "Businesses (B2B)",
+  "order.shop.model.both": "B2C + B2B",
+  "order.shop.customModules": "Custom modules needed",
+  "order.shop.customModules.ph": "Quote-to-order, client portals, tiered pricing, production planning…",
+  "order.shop.erpNeeds": "ERP / back-office sync",
+  "order.shop.erpNeeds.ph": "Sage, Odoo, Cegid, custom API…",
+  "order.shop.languages": "Store languages",
+  "order.shop.languages.ph": "e.g. French + English",
+
+  "order.price.customModules": "Custom sur-mesure modules",
+  "order.price.shop-starter.productCount.26_75": "26 to 75 products",
+  "order.price.shop-starter.productCount.76_150": "76 to 150 products",
+  "order.price.shop-starter.catalogStatus.partial": "Partial catalog support",
+  "order.price.shop-starter.catalogStatus.none": "Catalog setup support",
+  "order.price.shop-starter.currentPlatform.other": "Non-standard migration",
+  "order.price.shop-pro.productCount.151_500": "151 to 500 products",
+  "order.price.shop-pro.productCount.500+": "500+ products",
+  "order.price.shop-pro.needWholesale.yes": "B2B / wholesale portal",
+  "order.price.shop-pro.needWholesale.later": "Wholesale (later phase)",
+  "order.price.shop-enterprise.businessModel.b2b": "B2B commerce flows",
+  "order.price.shop-enterprise.businessModel.both": "B2C + B2B architecture",
+  "order.price.shop-enterprise.productCount.1000+": "1,000+ SKU catalog",
+  "order.price.shop-enterprise.productCount.variants-heavy": "Complex variant matrix",
 } as const
 
 export type TranslationKey = keyof typeof en

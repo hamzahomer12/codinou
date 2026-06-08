@@ -19,6 +19,7 @@ import {
   Globe,
   Layers,
   Bot,
+  ShoppingBag,
   Search,
   PenTool,
   Hammer,
@@ -30,6 +31,7 @@ const SERVICES: { id: ServiceId; icon: typeof Globe }[] = [
   { id: "website", icon: Globe },
   { id: "webapp", icon: Layers },
   { id: "ai", icon: Bot },
+  { id: "ecommerce", icon: ShoppingBag },
 ]
 
 const PROCESS_ICONS = [Search, PenTool, Hammer, RocketIcon]
@@ -79,7 +81,7 @@ export default function HomePage() {
               subtitle={t("expertise.subtitle")}
             />
           </Reveal>
-          <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3 lg:gap-5">
+          <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
             {SERVICES.map((item, index) => (
               <Reveal key={item.id} delay={index * 100}>
                 <ExpertiseCard serviceId={item.id} icon={item.icon} t={t} />

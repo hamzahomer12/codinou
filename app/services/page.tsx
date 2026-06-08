@@ -10,13 +10,15 @@ import { ServicesNav } from "@/components/services-nav"
 import { PackageCard } from "@/components/package-card"
 import { SketchyButton } from "@/components/sketchy-button"
 import { SERVICE_IDS, SERVICE_PACKAGES, type ServiceId } from "@/lib/services-data"
-import { Globe, Layers, Bot, ArrowRight } from "lucide-react"
+import { Globe, Layers, Bot, ShoppingBag, ArrowRight } from "lucide-react"
+import { EcommerceComparison } from "@/components/ecommerce-comparison"
 import type { LucideIcon } from "lucide-react"
 
 const SERVICE_ICONS: Record<ServiceId, LucideIcon> = {
   website: Globe,
   webapp: Layers,
   ai: Bot,
+  ecommerce: ShoppingBag,
 }
 
 export default function ServicesPage() {
@@ -65,6 +67,8 @@ export default function ServicesPage() {
                 {t(`service.${serviceId}.detail`)}
               </p>
               </Reveal>
+
+              {serviceId === "ecommerce" && <EcommerceComparison t={t} />}
 
               <div className="grid gap-5 lg:grid-cols-3">
                 {packages.map((pkgId, i) => (

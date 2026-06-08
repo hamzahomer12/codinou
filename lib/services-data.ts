@@ -1,4 +1,4 @@
-export type ServiceId = "website" | "webapp" | "ai"
+export type ServiceId = "website" | "webapp" | "ai" | "ecommerce"
 
 export type PackageId =
   | "launch"
@@ -10,13 +10,17 @@ export type PackageId =
   | "automate"
   | "agents"
   | "ai-custom"
+  | "shop-starter"
+  | "shop-pro"
+  | "shop-enterprise"
 
-export const SERVICE_IDS: ServiceId[] = ["website", "webapp", "ai"]
+export const SERVICE_IDS: ServiceId[] = ["website", "webapp", "ai", "ecommerce"]
 
 export const SERVICE_PACKAGES: Record<ServiceId, PackageId[]> = {
   website: ["launch", "growth", "scale"],
   webapp: ["mvp", "product", "platform"],
   ai: ["automate", "agents", "ai-custom"],
+  ecommerce: ["shop-starter", "shop-pro", "shop-enterprise"],
 }
 
 export const TECH_STACK_KEYS = [

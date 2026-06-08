@@ -23,6 +23,9 @@ export const PACKAGE_PRICES_EUR: Record<PackageId, number> = {
   automate: 1890,
   agents: 4490,
   "ai-custom": 9900,
+  "shop-starter": 3290,
+  "shop-pro": 6900,
+  "shop-enterprise": 12900,
 }
 
 /** ~30% kickoff deposit, rounded for clean checkout. */
@@ -36,6 +39,9 @@ export const PACKAGE_DEPOSITS_EUR: Record<PackageId, number> = {
   automate: 590,
   agents: 1350,
   "ai-custom": 2990,
+  "shop-starter": 990,
+  "shop-pro": 2070,
+  "shop-enterprise": 3870,
 }
 
 function envPriceId(packageId: PackageId): string | undefined {
