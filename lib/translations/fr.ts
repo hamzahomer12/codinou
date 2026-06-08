@@ -231,6 +231,14 @@ export const fr: Record<TranslationKey, string> = {
   "cta.title": "Prêt à démarrer ?",
   "cta.subtitle": "Choisissez un forfait ou décrivez votre idée. Réponse sous un jour ouvré.",
 
+  "services.nav.kicker": "Choisir un service",
+  "services.nav.website": "Sites web",
+  "services.nav.webapp": "Applications",
+  "services.nav.ai": "Solutions IA",
+  "services.nav.ecommerce": "E-commerce",
+  "services.nav.packages": "forfaits",
+  "services.nav.jump": "Voir les forfaits",
+
   "services.title": "Services & tarifs",
   "services.subtitle":
     "Douze forfaits pour sites, apps, e-commerce et IA. Tarifs alignés sur le marché français et européen 2025–2026.",

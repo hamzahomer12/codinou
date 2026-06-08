@@ -36,7 +36,7 @@ export default function ServicesPage() {
           <p className="mx-auto mb-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
             {t("services.pricingNote")}
           </p>
-          <ServicesNav t={t} className="mx-auto max-w-3xl" />
+          <ServicesNav t={t} className="mx-auto max-w-4xl" />
         </PageSection>
 
         {SERVICE_IDS.map((serviceId, index) => {

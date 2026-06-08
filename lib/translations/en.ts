@@ -229,6 +229,14 @@
   "cta.title": "Ready to start?",
   "cta.subtitle": "Pick a package or tell us about your idea. We reply within one business day.",
 
+  "services.nav.kicker": "Choose a service",
+  "services.nav.website": "Websites",
+  "services.nav.webapp": "Web apps",
+  "services.nav.ai": "AI solutions",
+  "services.nav.ecommerce": "Ecommerce",
+  "services.nav.packages": "packages",
+  "services.nav.jump": "View packages",
+
   "services.title": "Services & Pricing",
   "services.subtitle":
     "Twelve packages across websites, web apps, ecommerce, and AI. Prices researched against the French and EU market for 2025–2026.",
