@@ -2,7 +2,6 @@
 
 import { Check } from "lucide-react"
 import { SketchyButton } from "@/components/sketchy-button"
-import { PayButton } from "@/components/pay-button"
 import { useLanguage } from "@/context/language-context"
 import {
   PACKAGE_DEPOSITS_EUR,
@@ -65,16 +64,16 @@ export function PackageCard({ packageId, t, highlighted, className }: PackageCar
       </p>
 
       <div className="space-y-3">
-        <PayButton
-          packageId={packageId}
-          packageName={t(`${key}.name`)}
-          packageDescription={t(`${key}.best`)}
-          depositLabel={`${t("payment.deposit")} ${depositFormatted}`}
-          payLabel={t("payment.pay")}
-          loadingLabel={t("payment.loading")}
-          errorLabel={t("payment.error")}
+        <SketchyButton
+          href={`/order/${packageId}`}
           variant={highlighted ? "primary" : "outline"}
-        />
+          className="w-full"
+        >
+          {t("order.start")}
+        </SketchyButton>
+        <p className="text-center text-xs text-muted-foreground">
+          {t("payment.deposit")} {depositFormatted}
+        </p>
         <SketchyButton href="/contact" variant="outline" className="w-full text-sm">
           {t("packages.cta")}
         </SketchyButton>

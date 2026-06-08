@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import type Stripe from "stripe"
+import { stripeMetadataToBrief } from "@/lib/package-brief"
 import { getStripe } from "@/lib/stripe"
 
 export const runtime = "nodejs"
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session
     const webhook = process.env.CONTACT_WEBHOOK_URL
+    const brief = stripeMetadataToBrief(session.metadata ?? undefined)
 
     if (webhook) {
       await fetch(webhook, {
@@ -39,7 +41,9 @@ export async function POST(request: Request) {
           event: "payment_completed",
           sentAt: new Date().toISOString(),
           packageId: session.metadata?.packageId,
-          customerEmail: session.customer_details?.email,
+          customerEmail: session.customer_details?.email ?? brief?.email,
+          customerName: session.metadata?.customerName ?? brief?.fullName,
+          brief,
           amountTotal: session.amount_total,
           currency: session.currency,
           sessionId: session.id,
