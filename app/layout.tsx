@@ -6,6 +6,7 @@ import "./globals.css"
 import { LanguageProvider } from "@/context/language-context"
 import { SkipLink } from "@/components/skip-link"
 import { MobileStickyCta } from "@/components/mobile-sticky-cta"
+import { MetaPixel } from "@/components/meta-pixel"
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -80,6 +81,7 @@ export default function RootLayout({
           <MobileStickyCta />
         </LanguageProvider>
         <Analytics />
+        <MetaPixel />
       </body>
     </html>
   )
