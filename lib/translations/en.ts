@@ -308,6 +308,19 @@
   "footer.legal": "Legal",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms of Service",
+
+  "payment.deposit": "Kickoff deposit:",
+  "payment.pay": "Pay with Stripe",
+  "payment.loading": "Redirecting to Stripe",
+  "payment.error": "Payment could not be started. Please try again or contact us.",
+
+  "payment.success.title": "Payment received",
+  "payment.success.subtitle": "Thank you. We received your deposit and will contact you shortly to start your project.",
+  "payment.success.cta": "Back to services",
+
+  "payment.cancel.title": "Payment cancelled",
+  "payment.cancel.subtitle": "No charge was made. You can try again or contact us for a custom quote.",
+  "payment.cancel.cta": "View packages",
 } as const
 
 export type TranslationKey = keyof typeof en

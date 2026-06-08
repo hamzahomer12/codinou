@@ -310,4 +310,17 @@ export const fr: Record<TranslationKey, string> = {
   "footer.legal": "Mentions",
   "footer.privacy": "Confidentialité",
   "footer.terms": "Conditions d'utilisation",
+
+  "payment.deposit": "Acompte de lancement :",
+  "payment.pay": "Payer avec Stripe",
+  "payment.loading": "Redirection vers Stripe",
+  "payment.error": "Le paiement n'a pas pu démarrer. Réessayez ou contactez-nous.",
+
+  "payment.success.title": "Paiement reçu",
+  "payment.success.subtitle": "Merci. Nous avons reçu votre acompte et vous contacterons rapidement pour démarrer le projet.",
+  "payment.success.cta": "Retour aux services",
+
+  "payment.cancel.title": "Paiement annulé",
+  "payment.cancel.subtitle": "Aucun débit n'a été effectué. Vous pouvez réessayer ou nous contacter pour un devis.",
+  "payment.cancel.cta": "Voir les forfaits",
 }

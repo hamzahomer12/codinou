@@ -1,5 +1,10 @@
+"use client"
+
 import { Check } from "lucide-react"
 import { SketchyButton } from "@/components/sketchy-button"
+import { PayButton } from "@/components/pay-button"
+import { useLanguage } from "@/context/language-context"
+import { PACKAGE_DEPOSITS_EUR, formatDeposit } from "@/lib/stripe-payments"
 import { cn } from "@/lib/utils"
 import type { PackageId } from "@/lib/services-data"
 
@@ -11,8 +16,11 @@ interface PackageCardProps {
 }
 
 export function PackageCard({ packageId, t, highlighted, className }: PackageCardProps) {
+  const { language } = useLanguage()
   const key = `pkg.${packageId}`
   const features = [1, 2, 3, 4].map((i) => t(`${key}.f${i}`))
+  const depositCents = (PACKAGE_DEPOSITS_EUR[packageId] ?? 0) * 100
+  const depositFormatted = formatDeposit(depositCents, "eur", language)
 
   return (
     <article
@@ -45,9 +53,21 @@ export function PackageCard({ packageId, t, highlighted, className }: PackageCar
         {t(`${key}.best`)}
       </p>
 
-      <SketchyButton href="/contact" variant={highlighted ? "primary" : "outline"} className="w-full text-sm">
-        {t("packages.cta")}
-      </SketchyButton>
+      <div className="space-y-3">
+        <PayButton
+          packageId={packageId}
+          packageName={t(`${key}.name`)}
+          packageDescription={t(`${key}.best`)}
+          depositLabel={`${t("payment.deposit")} ${depositFormatted}`}
+          payLabel={t("payment.pay")}
+          loadingLabel={t("payment.loading")}
+          errorLabel={t("payment.error")}
+          variant={highlighted ? "primary" : "outline"}
+        />
+        <SketchyButton href="/contact" variant="outline" className="w-full text-sm">
+          {t("packages.cta")}
+        </SketchyButton>
+      </div>
     </article>
   )
 }
