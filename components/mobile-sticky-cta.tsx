@@ -17,7 +17,7 @@ export function MobileStickyCta() {
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-primary/15 bg-background/95 p-3 shadow-[0_-8px_24px_rgba(45,58,92,0.08)] backdrop-blur-md md:hidden pb-[max(0.75rem,env(safe-area-inset-bottom))]"
+      className="glass-ios-header fixed inset-x-0 bottom-0 z-40 p-3 shadow-[0_-8px_24px_rgba(45,58,92,0.08)] md:hidden pb-[max(0.75rem,env(safe-area-inset-bottom))]"
       role="region"
       aria-label={t("a11y.stickyCta")}
     >

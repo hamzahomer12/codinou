@@ -11,15 +11,13 @@ export function SketchyCard({ children, className, variant = "default" }: Sketch
   return (
     <div
       className={cn(
-        "relative p-8 transition-all duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-lg",
-        variant === "default" && "bg-card/80 border-2 border-primary/20 shadow-sm",
-        variant === "highlighted" && "bg-primary/[0.03] border-2 border-primary/40 shadow-md",
-        variant === "coral" && "bg-secondary/[0.03] border-2 border-secondary/40 shadow-md",
+        "glass-ios relative p-8 transition-all duration-300 motion-safe:hover:-translate-y-1",
+        variant === "highlighted" && "ring-1 ring-primary/15",
+        variant === "coral" && "ring-1 ring-secondary/20",
         className,
       )}
       style={{
         borderRadius: "24px 8px 24px 8px",
-        backdropFilter: "blur(8px)",
       }}
     >
       {children}

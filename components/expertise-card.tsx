@@ -16,7 +16,7 @@ export function ExpertiseCard({ serviceId, icon: Icon, t, className }: Expertise
     <Link
       href={`/services#${serviceId}`}
       className={cn(
-        "card-lift group flex h-full flex-col rounded-2xl border border-primary/15 bg-card p-6 shadow-sm hover:border-primary/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "card-lift glass-ios group flex h-full flex-col rounded-2xl p-6 hover:border-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className,
       )}
     >

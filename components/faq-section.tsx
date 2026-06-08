@@ -22,7 +22,7 @@ export function FaqSection({ t }: FaqSectionProps) {
         <SectionHeading label={t("faq.kicker")} title={t("faq.title")} />
       </Reveal>
       <Reveal delay={120}>
-      <div className="mx-auto max-w-2xl divide-y divide-primary/10 overflow-hidden rounded-2xl border border-primary/12 bg-card shadow-sm">
+      <div className="glass-ios mx-auto max-w-2xl divide-y divide-primary/8 overflow-hidden rounded-2xl">
         {FAQ_KEYS.map((qKey, index) => {
           const aKey = qKey.replace(".q", ".a") as "faq.a1"
           const isOpen = openIndex === index

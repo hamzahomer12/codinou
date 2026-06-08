@@ -35,7 +35,7 @@ export function Header() {
   const isActive = (paths: string[]) => paths.includes(pathname)
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-primary/15 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
+    <header className="glass-ios-header sticky top-0 z-50">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}

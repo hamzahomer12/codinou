@@ -22,7 +22,7 @@ export function PageSection({
       aria-labelledby={ariaLabelledby}
       className={cn(
         "scroll-mt-24 py-14 lg:py-20",
-        variant === "muted" && "border-y border-primary/10 bg-primary/[0.02]",
+        variant === "muted" && "glass-ios-subtle border-y border-white/40",
         variant === "plain" && "py-12",
         className,
       )}

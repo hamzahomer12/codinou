@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/context/language-context"
 import { SkipLink } from "@/components/skip-link"
 import { MobileStickyCta } from "@/components/mobile-sticky-cta"
 import { MetaPixel } from "@/components/meta-pixel"
+import { GradientBackground } from "@/components/gradient-background"
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -75,6 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${caveat.variable} ${firaCode.variable} font-sans antialiased`}>
+        <GradientBackground />
         <LanguageProvider>
           <SkipLink />
           {children}

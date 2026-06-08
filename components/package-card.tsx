@@ -31,10 +31,8 @@ export function PackageCard({ packageId, t, highlighted, className }: PackageCar
   return (
     <article
       className={cn(
-        "card-lift flex h-full flex-col rounded-2xl border p-5 sm:p-6",
-        highlighted
-          ? "border-secondary/40 bg-secondary/[0.04] shadow-md"
-          : "border-primary/12 bg-card shadow-sm",
+        "card-lift glass-ios flex h-full flex-col rounded-2xl p-5 sm:p-6",
+        highlighted && "ring-1 ring-secondary/25",
         className,
       )}
     >

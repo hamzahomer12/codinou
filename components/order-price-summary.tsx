@@ -22,7 +22,7 @@ export function OrderPriceSummary({ packageId, values, language, t }: OrderPrice
 
   return (
     <aside
-      className="sticky top-24 rounded-2xl border border-secondary/30 bg-secondary/[0.06] p-5 shadow-sm"
+      className="glass-ios sticky top-24 rounded-2xl p-5 ring-1 ring-secondary/15"
       aria-live="polite"
       aria-atomic="true"
     >

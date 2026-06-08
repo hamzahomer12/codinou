@@ -3,7 +3,6 @@
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { HeroParallax } from "@/components/hero-parallax"
 import { Reveal } from "@/components/reveal"
 import { useLanguage } from "@/context/language-context"
 import { SketchyCard } from "@/components/sketchy-card"
@@ -43,9 +42,8 @@ export default function HomePage() {
       <Header />
 
       <main id="main" tabIndex={-1} className="flex-1 pb-20 outline-none md:pb-0">
-        <PageSection variant="plain" className="relative overflow-hidden pt-16 lg:pt-24">
-          <HeroParallax />
-          <div className="relative z-10 mx-auto max-w-3xl text-center">
+        <PageSection variant="plain" className="pt-16 lg:pt-24">
+          <div className="mx-auto max-w-3xl text-center">
             <Image
               src="/codinou-logo.png"
               alt="Codinou"
@@ -101,7 +99,7 @@ export default function HomePage() {
               { icon: Heart, title: t("about.feature3.title"), desc: t("about.feature3.desc") },
             ].map((item, index) => (
               <Reveal key={item.title} delay={index * 90}>
-                <div className="card-lift rounded-2xl border border-primary/12 bg-card p-6 text-center shadow-sm">
+                <div className="card-lift glass-ios rounded-2xl p-6 text-center">
                   <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                     <item.icon className="h-6 w-6 text-primary" aria-hidden />
                   </div>
@@ -122,7 +120,7 @@ export default function HomePage() {
               const Icon = PROCESS_ICONS[step - 1]
               return (
                 <Reveal key={step} delay={(step - 1) * 80}>
-                  <li className="card-lift h-full rounded-2xl border border-primary/12 bg-card p-5 shadow-sm">
+                  <li className="card-lift glass-ios h-full rounded-2xl p-5">
                     <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/15">
                       <Icon className="h-5 w-5 text-secondary" aria-hidden />
                     </div>
