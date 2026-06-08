@@ -3,7 +3,7 @@ import Stripe from "stripe"
 let stripeClient: Stripe | null = null
 
 export function getStripe(): Stripe | null {
-  const secretKey = process.env.STRIPE_SECRET_KEY
+  const secretKey = process.env.STRIPE_SECRET_KEY?.trim()
   if (!secretKey) return null
 
   if (!stripeClient) {
