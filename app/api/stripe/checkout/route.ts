@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server"
 import { z } from "zod"
 import { getAppUrl } from "@/lib/app-url"
+import { resolvePackageQuote } from "@/lib/catalog-db"
+import { persistCheckoutStarted, linkStripeSession } from "@/lib/db/persist"
 import { briefToStripeMetadata } from "@/lib/package-brief"
-import { calculatePackageQuote } from "@/lib/package-pricing"
 import { getStripe } from "@/lib/stripe"
 import { validatePackageBrief } from "@/lib/validate-brief"
 
@@ -35,10 +36,12 @@ export async function POST(request: Request) {
     }
 
     const { packageId, brief } = validated
-    const quote = calculatePackageQuote(packageId, brief)
+    const quote = await resolvePackageQuote(packageId, brief)
     const appUrl = getAppUrl()
     const customerEmail = brief.email
     const customerName = brief.fullName
+
+    const orderId = await persistCheckoutStarted({ packageId, brief, quote })
 
     const webhook = process.env.CONTACT_WEBHOOK_URL
     if (webhook) {
@@ -52,6 +55,7 @@ export async function POST(request: Request) {
           packageId,
           brief,
           quote,
+          orderId,
           termsAccepted: true,
         }),
       }).catch(() => undefined)
@@ -81,6 +85,7 @@ export async function POST(request: Request) {
         customerName: customerName.slice(0, 500),
         totalEur: String(quote.totalEur),
         depositEur: String(quote.depositEur),
+        orderId: orderId ?? "",
         ...briefToStripeMetadata(brief),
       },
       success_url: `${appUrl}/pay/success?session_id={CHECKOUT_SESSION_ID}`,
@@ -89,6 +94,10 @@ export async function POST(request: Request) {
 
     if (!session.url) {
       return NextResponse.json({ error: "Could not start checkout." }, { status: 500 })
+    }
+
+    if (orderId && session.id) {
+      await linkStripeSession(orderId, session.id)
     }
 
     return NextResponse.json({ url: session.url })

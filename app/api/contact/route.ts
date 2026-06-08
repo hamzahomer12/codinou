@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { z } from "zod"
+import { persistLead } from "@/lib/db/persist"
 
 const contactSchema = z.object({
   name: z.string().trim().min(2).max(120),
@@ -23,9 +24,16 @@ export async function POST(request: Request) {
       )
     }
 
+    await persistLead({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      serviceInterest: parsed.data.serviceInterest,
+      message: parsed.data.message,
+    })
+
     const webhook = process.env.CONTACT_WEBHOOK_URL
     if (webhook) {
-      const forward = await fetch(webhook, {
+      await fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -33,11 +41,7 @@ export async function POST(request: Request) {
           sentAt: new Date().toISOString(),
           ...parsed.data,
         }),
-      })
-
-      if (!forward.ok) {
-        return NextResponse.json({ error: "Unable to send right now. Please email us directly." }, { status: 502 })
-      }
+      }).catch(() => undefined)
     }
 
     return NextResponse.json({ ok: true })

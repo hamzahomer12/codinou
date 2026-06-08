@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
 import type Stripe from "stripe"
+import { persistPaymentCompleted } from "@/lib/db/persist"
+import { createAdminClient } from "@/lib/supabase/admin"
 import { stripeMetadataToBrief } from "@/lib/package-brief"
 import { getStripe } from "@/lib/stripe"
 
@@ -27,11 +29,36 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 })
   }
 
+  if (event.type === "invoice.paid") {
+    const invoice = event.data.object as Stripe.Invoice
+    const orderId = invoice.metadata?.order_id
+    if (orderId) {
+      const supabase = createAdminClient()
+      if (supabase) {
+        await supabase
+          .from("invoices")
+          .update({ status: "paid", paid_at: new Date().toISOString() })
+          .eq("stripe_invoice_id", invoice.id)
+      }
+    }
+  }
+
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session
-    const webhook = process.env.CONTACT_WEBHOOK_URL
     const brief = stripeMetadataToBrief(session.metadata ?? undefined)
 
+    await persistPaymentCompleted({
+      stripeSessionId: session.id,
+      packageId: session.metadata?.packageId,
+      customerEmail: session.customer_details?.email ?? brief?.email,
+      customerName: session.metadata?.customerName ?? brief?.fullName,
+      totalEur: session.metadata?.totalEur ? Number(session.metadata.totalEur) : undefined,
+      depositEur: session.metadata?.depositEur ? Number(session.metadata.depositEur) : undefined,
+      brief,
+      amountTotal: session.amount_total,
+    })
+
+    const webhook = process.env.CONTACT_WEBHOOK_URL
     if (webhook) {
       await fetch(webhook, {
         method: "POST",
