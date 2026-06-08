@@ -72,7 +72,8 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ url: session.url })
-  } catch {
+  } catch (error) {
+    console.error("Stripe checkout error:", error)
     return NextResponse.json({ error: "Payment could not be started. Please try again." }, { status: 500 })
   }
 }
