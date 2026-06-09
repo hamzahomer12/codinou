@@ -1,9 +1,18 @@
 import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
 
+const SPLASH_COOKIE = "codinou_splash_seen"
+
 function isAdminHost(hostname: string): boolean {
   const host = hostname.split(":")[0]
   return host === "admin.codinou.ma" || host.startsWith("admin.localhost") || host === "admin.localhost"
+}
+
+function hasSeenSplash(request: NextRequest): boolean {
+  return (
+    request.cookies.get(SPLASH_COOKIE)?.value === "1" ||
+    request.cookies.get(SPLASH_COOKIE)?.value === "true"
+  )
 }
 
 export async function middleware(request: NextRequest) {
@@ -13,6 +22,21 @@ export async function middleware(request: NextRequest) {
 
   if (!adminHost && pathname.startsWith("/admin")) {
     return NextResponse.redirect(new URL("/", request.url))
+  }
+
+  if (!adminHost && pathname === "/splash") {
+    if (hasSeenSplash(request)) {
+      return NextResponse.redirect(new URL("/", request.url))
+    }
+    const splashUrl = request.nextUrl.clone()
+    splashUrl.pathname = "/splash-animation.html"
+    return NextResponse.rewrite(splashUrl)
+  }
+
+  if (!adminHost && pathname === "/" && !hasSeenSplash(request)) {
+    const splashUrl = request.nextUrl.clone()
+    splashUrl.pathname = "/splash"
+    return NextResponse.redirect(splashUrl)
   }
 
   let response = NextResponse.next({ request })
@@ -66,6 +90,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/((?!_next/static|_next/image|favicon.ico|splash-animation.html|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 }
