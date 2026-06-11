@@ -26,6 +26,7 @@ import {
   RocketIcon,
 } from "lucide-react"
 import type { ServiceId } from "@/lib/services-data"
+import { trackMetaLead } from "@/lib/track-meta-lead"
 
 const SERVICES: { id: ServiceId; icon: typeof Globe }[] = [
   { id: "website", icon: Globe },
@@ -66,7 +67,12 @@ export default function HomePage() {
                 {t("hero.cta")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </SketchyButton>
-              <SketchyButton href="/contact" variant="outline" className="sm:min-w-[200px]">
+              <SketchyButton
+                href="/contact"
+                variant="outline"
+                className="sm:min-w-[200px]"
+                onClick={trackMetaLead}
+              >
                 {t("hero.cta.secondary")}
               </SketchyButton>
             </div>

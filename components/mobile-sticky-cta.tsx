@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/context/language-context"
+import { trackMetaLead } from "@/lib/track-meta-lead"
 
 const PATHS_WITH_STICKY = new Set(["/", "/services"])
 
@@ -23,6 +24,7 @@ export function MobileStickyCta() {
     >
       <Link
         href="/contact"
+        onClick={trackMetaLead}
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         style={{ borderRadius: "16px 6px 16px 6px" }}
       >

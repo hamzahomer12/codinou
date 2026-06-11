@@ -8,6 +8,7 @@ import { SketchyCard } from "@/components/sketchy-card"
 import { SketchyButton } from "@/components/sketchy-button"
 import { Mail, Send, CheckCircle2 } from "lucide-react"
 import { useState } from "react"
+import { trackMetaLead } from "@/lib/track-meta-lead"
 
 export default function ContactPage() {
   const { t } = useLanguage()
@@ -50,6 +51,7 @@ export default function ContactPage() {
         return
       }
 
+      trackMetaLead()
       setIsSubmitted(true)
       setTimeout(() => setIsSubmitted(false), 5000)
       setFormData({ name: "", email: "", serviceInterest: "", message: "" })

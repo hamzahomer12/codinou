@@ -36,7 +36,7 @@ export function SketchyButton({
 
   if (href) {
     return (
-      <Link href={href} className={baseStyles} style={{ borderRadius }}>
+      <Link href={href} className={baseStyles} style={{ borderRadius }} onClick={onClick}>
         {children}
       </Link>
     )
