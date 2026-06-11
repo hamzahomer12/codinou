@@ -33,17 +33,21 @@ export async function POST(request: Request) {
       message: parsed.data.message,
     })
 
-    if (isContactEmailConfigured()) {
-      const emailResult = await sendContactEmails(parsed.data)
-      if (!emailResult.ok) {
-        console.error("sendContactEmails:", emailResult.error)
-        return NextResponse.json(
-          { error: "Unable to send right now. Please email us directly." },
-          { status: 503 },
-        )
-      }
-    } else {
-      console.warn("RESEND_API_KEY missing — contact emails not sent")
+    if (!isContactEmailConfigured()) {
+      console.error("RESEND_API_KEY missing — contact emails not sent")
+      return NextResponse.json(
+        { error: "Unable to send right now. Please email us directly." },
+        { status: 503 },
+      )
+    }
+
+    const emailResult = await sendContactEmails(parsed.data)
+    if (!emailResult.ok) {
+      console.error("sendContactEmails:", emailResult.error)
+      return NextResponse.json(
+        { error: "Unable to send right now. Please email us directly." },
+        { status: 503 },
+      )
     }
 
     const webhook = process.env.CONTACT_WEBHOOK_URL

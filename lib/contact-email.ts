@@ -27,7 +27,10 @@ function getInboxEmail(): string {
 }
 
 function getFromEmail(): string {
-  return process.env.CONTACT_FROM_EMAIL?.trim() || "Codinou <noreply@codinou.ma>"
+  const raw = process.env.CONTACT_FROM_EMAIL?.trim()
+  // Values with spaces must be quoted in .env; fall back if misconfigured.
+  if (raw && raw.includes("@")) return raw.replace(/^["']|["']$/g, "")
+  return "Codinou <noreply@codinou.ma>"
 }
 
 function serviceLabel(serviceInterest: string | undefined, language: "en" | "fr"): string {
@@ -60,7 +63,7 @@ async function sendResendEmail(payload: {
       to: payload.to,
       subject: payload.subject,
       html: payload.html,
-      reply_to: payload.replyTo,
+      ...(payload.replyTo ? { reply_to: payload.replyTo } : {}),
     }),
   })
 
