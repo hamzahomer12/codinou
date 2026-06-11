@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { z } from "zod"
 import { persistLead } from "@/lib/db/persist"
+import { isContactEmailConfigured, sendContactEmails } from "@/lib/contact-email"
 
 const contactSchema = z.object({
   name: z.string().trim().min(2).max(120),
@@ -10,6 +11,7 @@ const contactSchema = z.object({
     .optional()
     .transform((v) => v || undefined),
   message: z.string().trim().min(10).max(3000),
+  language: z.enum(["en", "fr"]).optional(),
 })
 
 export async function POST(request: Request) {
@@ -30,6 +32,19 @@ export async function POST(request: Request) {
       serviceInterest: parsed.data.serviceInterest,
       message: parsed.data.message,
     })
+
+    if (isContactEmailConfigured()) {
+      const emailResult = await sendContactEmails(parsed.data)
+      if (!emailResult.ok) {
+        console.error("sendContactEmails:", emailResult.error)
+        return NextResponse.json(
+          { error: "Unable to send right now. Please email us directly." },
+          { status: 503 },
+        )
+      }
+    } else {
+      console.warn("RESEND_API_KEY missing — contact emails not sent")
+    }
 
     const webhook = process.env.CONTACT_WEBHOOK_URL
     if (webhook) {

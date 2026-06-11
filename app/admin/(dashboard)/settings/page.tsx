@@ -26,7 +26,7 @@ export default async function SettingsPage() {
           <p className="font-medium">admin.codinou.ma</p>
         </div>
         <p className="text-xs text-muted-foreground">
-          Environment variables (Supabase, Stripe) are managed in Vercel. Contact webhook remains optional via CONTACT_WEBHOOK_URL.
+          Environment variables (Supabase, Stripe, Resend) are managed in Vercel. Contact form emails use RESEND_API_KEY, CONTACT_INBOX_EMAIL (hamza@codinou.ma), and CONTACT_FROM_EMAIL (noreply@codinou.ma). CONTACT_WEBHOOK_URL remains optional.
         </p>
       </div>
     </div>
