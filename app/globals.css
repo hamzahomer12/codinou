@@ -530,6 +530,34 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(45, 58, 92, 0.1);
 }
 
+/* Global keyboard focus-visible fallback.
+   Guarantees a consistent, brand-colored ring on every interactive
+   element that does not declare its own focus-visible treatment. */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Fluid display type — large expressive headings that scale with the
+   viewport instead of jumping at breakpoints. Stays within the brand
+   type scale; pair with font-bold + text-primary as before. */
+.text-display {
+  font-size: clamp(2rem, 1.3rem + 3.4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.text-display-sm {
+  font-size: clamp(1.5rem, 1.15rem + 1.6vw, 2.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+}
+
 /* Selection colors */
 ::selection {
   background-color: rgba(232, 121, 121, 0.25);

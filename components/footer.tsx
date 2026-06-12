@@ -13,8 +13,8 @@ export function Footer() {
       <div className="container mx-auto px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Brand */}
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <Link href="/" className="group">
+          <div className="flex max-w-xs flex-col items-center gap-3 md:items-start">
+            <Link href="/" className="group rounded-md">
               <Image
                 src="/codinou-logo.png"
                 alt="Codinou Logo"
@@ -23,6 +23,9 @@ export function Footer() {
                 className="h-10 w-auto opacity-80 transition-opacity group-hover:opacity-100"
               />
             </Link>
+            <p className="text-center text-sm text-muted-foreground md:text-left">
+              {t("footer.tagline")}
+            </p>
           </div>
 
           {/* Quick Links */}

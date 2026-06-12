@@ -541,4 +541,20 @@ export const fr: Record<TranslationKey, string> = {
   "order.price.shop-enterprise.businessModel.both": "Architecture B2C + B2B",
   "order.price.shop-enterprise.productCount.1000+": "Catalogue 1 000+ références",
   "order.price.shop-enterprise.productCount.variants-heavy": "Variantes complexes",
+
+  "notFound.kicker": "Erreur 404",
+  "notFound.title": "Page introuvable",
+  "notFound.subtitle": "La page que vous cherchez n'existe pas ou a été déplacée.",
+  "notFound.cta": "Retour à l'accueil",
+  "notFound.services": "Voir les services",
+
+  "trust.title": "Ce sur quoi vous pouvez compter",
+  "trust.onetime.title": "Tarif unique",
+  "trust.onetime.desc": "Des forfaits affichés et un périmètre écrit. Pas d'abonnement plateforme surprise.",
+  "trust.reply.title": "Réponse sous 1 jour ouvré",
+  "trust.reply.desc": "Une vraie personne lit chaque demande et vous répond rapidement.",
+  "trust.launch.title": "Accompagnement au lancement inclus",
+  "trust.launch.desc": "Chaque forfait inclut l'aide à la mise en ligne et une période de corrections.",
+  "trust.secure.title": "Acomptes sécurisés via Stripe",
+  "trust.secure.desc": "Les acomptes de lancement passent par Stripe et sont déduits du total du projet.",
 }

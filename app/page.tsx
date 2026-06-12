@@ -24,6 +24,10 @@ import {
   PenTool,
   Hammer,
   RocketIcon,
+  Tag,
+  MessageCircle,
+  LifeBuoy,
+  ShieldCheck,
 } from "lucide-react"
 import type { ServiceId } from "@/lib/services-data"
 import { trackMetaLead } from "@/lib/track-meta-lead"
@@ -36,6 +40,13 @@ const SERVICES: { id: ServiceId; icon: typeof Globe }[] = [
 ]
 
 const PROCESS_ICONS = [Search, PenTool, Hammer, RocketIcon]
+
+const TRUST_SIGNALS: { id: string; icon: typeof Globe }[] = [
+  { id: "onetime", icon: Tag },
+  { id: "reply", icon: MessageCircle },
+  { id: "launch", icon: LifeBuoy },
+  { id: "secure", icon: ShieldCheck },
+]
 
 export default function HomePage() {
   const { t } = useLanguage()
@@ -55,7 +66,7 @@ export default function HomePage() {
               className="hero-enter mx-auto mb-8 h-auto w-56 md:w-64"
               priority
             />
-            <h1 className="hero-enter hero-enter-delay-1 mb-4 text-3xl font-bold leading-tight text-balance text-primary sm:text-4xl lg:text-5xl">
+            <h1 className="text-display hero-enter hero-enter-delay-1 mb-4 font-bold text-balance text-primary">
               {t("hero.title")}
               <span className="mt-1 block text-secondary">{t("hero.subtitle")}</span>
             </h1>
@@ -77,6 +88,32 @@ export default function HomePage() {
               </SketchyButton>
             </div>
           </div>
+        </PageSection>
+
+        <PageSection variant="plain" className="pt-0 pb-8 lg:pb-10" ariaLabelledby="trust-heading">
+          <h2 id="trust-heading" className="sr-only">
+            {t("trust.title")}
+          </h2>
+          <Reveal>
+            <ul className="mx-auto grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+              {TRUST_SIGNALS.map((item) => (
+                <li
+                  key={item.id}
+                  className="glass-ios-subtle flex items-start gap-3 rounded-2xl p-4"
+                >
+                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-secondary/15">
+                    <item.icon className="h-5 w-5 text-secondary" aria-hidden />
+                  </span>
+                  <div>
+                    <p className="text-sm font-bold text-primary">{t(`trust.${item.id}.title`)}</p>
+                    <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                      {t(`trust.${item.id}.desc`)}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </PageSection>
 
         <PageSection id="services" variant="muted" ariaLabelledby="services-heading">

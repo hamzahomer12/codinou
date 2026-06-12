@@ -44,7 +44,7 @@ export default function OrderPage() {
             <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-secondary">
               {t("order.kicker")}
             </p>
-            <h1 className="mb-2 text-3xl font-bold text-primary sm:text-4xl">{t(`${key}.name`)}</h1>
+            <h1 className="text-display-sm mb-2 font-bold text-primary">{t(`${key}.name`)}</h1>
             <p className="mb-4 text-base leading-relaxed text-muted-foreground">{t(`${key}.best`)}</p>
 
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
