@@ -84,7 +84,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium border-2 border-primary/20 rounded-full hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
+              className="flex min-h-[44px] items-center gap-2 px-4 py-2 text-sm font-medium border-2 border-primary/20 rounded-full hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
               aria-label="Switch language"
             >
               <Globe className="w-4 h-4 text-primary/70" />
@@ -96,7 +96,7 @@ export function Header() {
               ref={menuButtonRef}
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-primary/5 transition-colors"
+              className="md:hidden flex h-11 w-11 items-center justify-center rounded-lg hover:bg-primary/5 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
               aria-controls="site-mobile-nav"

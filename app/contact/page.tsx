@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/language-context"
 import { SketchyCard } from "@/components/sketchy-card"
 import { SketchyButton } from "@/components/sketchy-button"
 import { Mail, Send, CheckCircle2 } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { trackMetaLead } from "@/lib/track-meta-lead"
 
 export default function ContactPage() {
@@ -15,12 +15,19 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
+  const successRef = useRef<HTMLDivElement>(null)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     serviceInterest: "",
     message: "",
   })
+
+  useEffect(() => {
+    if (isSubmitted) {
+      successRef.current?.focus()
+    }
+  }, [isSubmitted])
 
   const serviceOptions = [
     { value: "", label: t("contact.service.placeholder") },
@@ -72,7 +79,7 @@ export default function ContactPage() {
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary/10">
               <Mail className="h-8 w-8 text-secondary" aria-hidden />
             </div>
-            <h1 className="mb-3 text-3xl font-bold text-balance text-primary sm:text-4xl">{t("contact.title")}</h1>
+            <h1 className="text-display-sm mb-3 font-bold text-balance text-primary">{t("contact.title")}</h1>
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">{t("contact.subtitle")}</p>
           </div>
         </section>
@@ -82,7 +89,9 @@ export default function ContactPage() {
               <SketchyCard variant="highlighted" className="animate-fade-in-up">
                 {isSubmitted ? (
                   <div
-                    className="py-16 text-center"
+                    ref={successRef}
+                    tabIndex={-1}
+                    className="py-16 text-center outline-none"
                     role="status"
                     aria-live="polite"
                     aria-atomic="true"

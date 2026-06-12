@@ -539,6 +539,22 @@
   "order.price.shop-enterprise.businessModel.both": "B2C + B2B architecture",
   "order.price.shop-enterprise.productCount.1000+": "1,000+ SKU catalog",
   "order.price.shop-enterprise.productCount.variants-heavy": "Complex variant matrix",
+
+  "notFound.kicker": "Error 404",
+  "notFound.title": "Page not found",
+  "notFound.subtitle": "The page you are looking for does not exist or has been moved.",
+  "notFound.cta": "Back to homepage",
+  "notFound.services": "Browse services",
+
+  "trust.title": "What you can count on",
+  "trust.onetime.title": "One-time pricing",
+  "trust.onetime.desc": "Published package rates and a written scope. No surprise monthly platform bills.",
+  "trust.reply.title": "Reply within 1 business day",
+  "trust.reply.desc": "A real person reviews every request and gets back to you fast.",
+  "trust.launch.title": "Launch support included",
+  "trust.launch.desc": "Every package ships with go-live help and a fixes window after launch.",
+  "trust.secure.title": "Secure Stripe deposits",
+  "trust.secure.desc": "Kickoff deposits are handled by Stripe and credited to your project total.",
 } as const
 
 export type TranslationKey = keyof typeof en
